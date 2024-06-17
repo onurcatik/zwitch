@@ -1,0 +1,2601 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Zwitch-Documentation</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="01/index.html"><strong aria-hidden="true">1.</strong> Giriş</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="01/01.html"><strong aria-hidden="true">1.1.</strong> Uygulama Önizlemesi</a></li><li class="chapter-item expanded "><a href="01/02.html"><strong aria-hidden="true">1.2.</strong> Mimari</a></li><li class="chapter-item expanded "><a href="01/03.html"><strong aria-hidden="true">1.3.</strong> MongoDB - NoSQL Veritabanı</a></li><li class="chapter-item expanded "><a href="01/04.html"><strong aria-hidden="true">1.4.</strong> Express - Node.js web uygulama çerçevesi</a></li><li class="chapter-item expanded "><a href="01/05.html"><strong aria-hidden="true">1.5.</strong> React - İstemci Tarafı Kütüphanesi</a></li><li class="chapter-item expanded "><a href="01/06.html"><strong aria-hidden="true">1.6.</strong> Node.js - Sunucu Tarafı</a></li><li class="chapter-item expanded "><a href="01/07.html"><strong aria-hidden="true">1.7.</strong> Socket.IO - Gerçek Zamanlı İletişim</a></li><li class="chapter-item expanded "><a href="01/08.html"><strong aria-hidden="true">1.8.</strong> MERN Stack Avantajı</a></li></ol></li><li class="chapter-item expanded "><a href="02/index.html"><strong aria-hidden="true">2.</strong> Express Sunucusu Oluşturma</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="02/01.html"><strong aria-hidden="true">2.1.</strong> Node.js kurulumu</a></li><li class="chapter-item expanded "><a href="02/02.html"><strong aria-hidden="true">2.2.</strong> Proje başlatma</a></li><li class="chapter-item expanded "><a href="02/03.html"><strong aria-hidden="true">2.3.</strong> Bağımlılıkların kurulumu</a></li><li class="chapter-item expanded "><a href="02/04.html"><strong aria-hidden="true">2.4.</strong> Express Sunucusu Oluşturma</a></li></ol></li><li class="chapter-item expanded "><a href="03/index.html"><strong aria-hidden="true">3.</strong> Authentification Routes - Kimlik Doğrulama Yolları</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="03/01.html"><strong aria-hidden="true">3.1.</strong> Creating Auth Routes - Kimlik Doğrulama Yolları Oluşturma</a></li><li class="chapter-item expanded "><a href="03/02.html"><strong aria-hidden="true">3.2.</strong> Testing Authentication Routes with Postman - Postman ile Kimlik Doğrulama Yollarını Test Etme</a></li><li class="chapter-item expanded "><a href="03/03.html"><strong aria-hidden="true">3.3.</strong> Authentication Controllers - Kimlik Doğrulama Kontrolörleri</a></li><li class="chapter-item expanded "><a href="03/04.html"><strong aria-hidden="true">3.4.</strong> Validation middleware - Validation ara yazılımı</a></li><li class="chapter-item expanded "><a href="03/05.html"><strong aria-hidden="true">3.5.</strong> Validation with Joi - Joi ile Validation</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Zwitch-Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mern-stack-ile-twitch-klon-uygulaması-oluşturma"><a class="header" href="#mern-stack-ile-twitch-klon-uygulaması-oluşturma">MERN Stack ile Twitch Klon Uygulaması Oluşturma</a></h1>
+<h2 id="genel-bakış"><a class="header" href="#genel-bakış">Genel Bakış</a></h2>
+<p>Bu eğitimde, MERN stack (MongoDB, Express.js, React.js ve Node.js) kullanarak bir Twitch klon uygulaması oluşturacağız. Bu uygulama, kanal tarama, akış izleme, sohbet özellikleri, kullanıcı kimlik doğrulama ve bildirimler gibi Twitch'in temel işlevlerinin çoğunu kopyalayacaktır. Uygulamanın uygulanmasının kesin, titiz ve yazılım geliştirme alanındaki en iyi uygulamalara uygun olmasını sağlayacağız.</p>
+<h2 id="İşlevler"><a class="header" href="#İşlevler">İşlevler</a></h2>
+<ol>
+<li><strong>Kanal Tarama</strong>: Kullanıcılar bir dizi kanalı tarayabilir.</li>
+<li><strong>Kanal Detayları</strong>: Her kanalın avatarını, başlığını, açıklamasını ve çevrimiçi durumunu görüntüleyebilir.</li>
+<li><strong>Kanal İzleme</strong>: Kullanıcılar, kanal çevrimiçi ise akışları izleyebilir, kanalın açıklamasını ve takip etme düğmesini görebilir.</li>
+<li><strong>Sohbet Sistemi</strong>: Her kanalın bir sohbet özelliği olacak ve ziyaretler arasında mesajlar saklanacaktır.</li>
+<li><strong>Kullanıcı Kimlik Doğrulama</strong>: Kullanıcılar kaydolabilir, giriş yapabilir ve kimlik doğrulaması yapılırsa kullanıcı adlarını görebilir.</li>
+<li><strong>Kanal Yönetimi</strong>: Kullanıcılar, kullanıcı adlarını, başlıklarını, avatarlarını ve açıklamalarını ayarlayarak kanallarını yönetebilir.</li>
+<li><strong>Yayın Entegrasyonu</strong>: Her kullanıcının, OBS gibi yayın yazılımına bağlanmak için benzersiz bir yayın anahtarı olacaktır.</li>
+<li><strong>Bildirimler</strong>: Kullanıcılar, örneğin yanlış giriş kimlik bilgileri gibi hatalar için bildirimler alacaklar.</li>
+</ol>
+<h2 id="Ön-koşullar"><a class="header" href="#Ön-koşullar">Ön Koşullar</a></h2>
+<p>Başlamadan önce, aşağıdakilerin yüklü olduğundan emin olun:</p>
+<ul>
+<li>Node.js</li>
+<li>npm (Node Package Manager)</li>
+<li>MongoDB</li>
+<li>Bir kod editörü (ör. VS Code)</li>
+</ul>
+<h2 id="proje-kurulumu"><a class="header" href="#proje-kurulumu">Proje Kurulumu</a></h2>
+<h3 id="1-backend-kurulumu"><a class="header" href="#1-backend-kurulumu">1. Backend Kurulumu</a></h3>
+<h4 id="adım-1-projeyi-başlatın"><a class="header" href="#adım-1-projeyi-başlatın">Adım 1: Projeyi Başlatın</a></h4>
+<pre><code class="language-sh">mkdir twitch-clone
+cd twitch-clone
+npm init -y
+</code></pre>
+<h4 id="adım-2-bağımlılıkları-yükleyin"><a class="header" href="#adım-2-bağımlılıkları-yükleyin">Adım 2: Bağımlılıkları Yükleyin</a></h4>
+<pre><code class="language-sh">npm install express mongoose bcryptjs jsonwebtoken cors
+</code></pre>
+<h4 id="adım-3-sunucuyu-oluşturun"><a class="header" href="#adım-3-sunucuyu-oluşturun">Adım 3: Sunucuyu Oluşturun</a></h4>
+<p><code>server.js</code> adlı bir dosya oluşturun ve temel Express sunucusunu kurun.</p>
+<pre><code class="language-js">const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+
+const app = express();
+const PORT = process.env.PORT || 5000;
+
+app.use(express.json());
+app.use(cors());
+
+// MongoDB'ye Bağlan
+mongoose.connect('mongodb://localhost:27017/twitch-clone', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
+.then(() =&gt; console.log('MongoDB connected'))
+.catch(err =&gt; console.error(err));
+
+// Temel route
+app.get('/', (req, res) =&gt; {
+    res.send('Twitch Clone API');
+});
+
+app.listen(PORT, () =&gt; {
+    console.log(`Server running on port ${PORT}`);
+});
+</code></pre>
+<h3 id="2-frontend-kurulumu"><a class="header" href="#2-frontend-kurulumu">2. Frontend Kurulumu</a></h3>
+<h4 id="adım-1-react-uygulaması-oluşturun"><a class="header" href="#adım-1-react-uygulaması-oluşturun">Adım 1: React Uygulaması Oluşturun</a></h4>
+<p>Kök dizinde, aşağıdaki komutu çalıştırın:</p>
+<pre><code class="language-sh">npx create-react-app client
+cd client
+</code></pre>
+<h4 id="adım-2-bağımlılıkları-yükleyin-1"><a class="header" href="#adım-2-bağımlılıkları-yükleyin-1">Adım 2: Bağımlılıkları Yükleyin</a></h4>
+<pre><code class="language-sh">npm install axios react-router-dom
+</code></pre>
+<h4 id="adım-3-temel-yapıyı-kurun"><a class="header" href="#adım-3-temel-yapıyı-kurun">Adım 3: Temel Yapıyı Kurun</a></h4>
+<p><code>client/src</code> dizininde aşağıdaki yapıyı oluşturun:</p>
+<pre><code>src/
+|-- components/
+|   |-- ChannelList.js
+|   |-- ChannelDetails.js
+|   |-- Chat.js
+|   |-- LoginForm.js
+|   |-- SignupForm.js
+|-- pages/
+|   |-- HomePage.js
+|   |-- ChannelPage.js
+|   |-- LoginPage.js
+|   |-- SignupPage.js
+|-- App.js
+|-- index.js
+</code></pre>
+<h3 id="3-İşlevlerin-uygulanması"><a class="header" href="#3-İşlevlerin-uygulanması">3. İşlevlerin Uygulanması</a></h3>
+<h4 id="kullanıcı-kimlik-doğrulama"><a class="header" href="#kullanıcı-kimlik-doğrulama">Kullanıcı Kimlik Doğrulama</a></h4>
+<h5 id="backend"><a class="header" href="#backend">Backend</a></h5>
+<p>Bir <code>models</code> dizini ve kullanıcı şeması için bir <code>User.js</code> dosyası oluşturun.</p>
+<pre><code class="language-js">const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
+
+const UserSchema = new mongoose.Schema({
+    username: { type: String, required: true, unique: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+});
+
+// Kaydetmeden önce şifreyi hashleyin
+UserSchema.pre('save', async function(next) {
+    if (!this.isModified('password')) {
+        return next();
+    }
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+    next();
+});
+
+module.exports = mongoose.model('User', UserSchema);
+</code></pre>
+<p>Kullanıcı kaydı ve giriş için bir <code>routes</code> dizini oluşturun.</p>
+<pre><code class="language-js">const express = require('express');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const User = require('../models/User');
+
+const router = express.Router();
+
+// Register
+router.post('/register', async (req, res) =&gt; {
+    const { username, email, password } = req.body;
+
+    try {
+        const user = new User({ username, email, password });
+        await user.save();
+        res.status(201).send('User registered');
+    } catch (error) {
+        res.status(400).send(error.message);
+    }
+});
+
+// Login
+router.post('/login', async (req, res) =&gt; {
+    const { email, password } = req.body;
+
+    try {
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(400).send('Invalid credentials');
+        }
+
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) {
+            return res.status(400).send('Invalid credentials');
+        }
+
+        const token = jwt.sign({ userId: user._id }, 'your_jwt_secret', { expiresIn: '1h' });
+        res.json({ token });
+    } catch (error) {
+        res.status(500).send('Server error');
+    }
+});
+
+module.exports = router;
+</code></pre>
+<p>Bu route'ları <code>server.js</code> dosyasına entegre edin.</p>
+<pre><code class="language-js">const userRoutes = require('./routes/users');
+app.use('/api/users', userRoutes);
+</code></pre>
+<h5 id="frontend"><a class="header" href="#frontend">Frontend</a></h5>
+<p>Giriş ve kayıt formlarını ayarlayın.</p>
+<pre><code class="language-js">// LoginForm.js
+import React, { useState } from 'react';
+import axios from 'axios';
+
+const LoginForm = () =&gt; {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+
+    const handleSubmit = async (e) =&gt; {
+        e.preventDefault();
+        try {
+            const res = await axios.post('http://localhost:5000/api/users/login', { email, password });
+            localStorage.setItem('token', res.data.token);
+            setError('');
+        } catch (err) {
+            setError('Invalid credentials');
+        }
+    };
+
+    return (
+        &lt;form onSubmit={handleSubmit}&gt;
+            &lt;input type="email" value={email} onChange={(e) =&gt; setEmail(e.target.value)} placeholder="Email" required /&gt;
+            &lt;input type="password" value={password} onChange={(e) =&gt; setPassword(e.target.value)} placeholder="Password" required /&gt;
+            &lt;button type="submit"&gt;Login&lt;/button&gt;
+            {error &amp;&amp; &lt;p&gt;{error}&lt;/p&gt;}
+        &lt;/form&gt;
+    );
+};
+
+export default LoginForm;
+</code></pre>
+<h3 id="kanal-tarama-ve-İzleme"><a class="header" href="#kanal-tarama-ve-İzleme">Kanal Tarama ve İzleme</a></h3>
+<h5 id="backend-1"><a class="header" href="#backend-1">Backend</a></h5>
+<p>Kanal detayları için bir <code>Channel.js</code> modeli oluşturun.</p>
+<pre><code class="language-js">const mongoose = require('mongoose');
+
+const ChannelSchema = new mongoose.Schema({
+    title: { type: String, required: true },
+    description: { type: String, required: true },
+    avatar: { type: String, required: true },
+    owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    online: { type: Boolean, default: false },
+});
+
+module.exports = mongoose.model('Channel', ChannelSchema);
+</code></pre>
+<p>Kanalları almak ve yönetmek için route'lar oluşturun.</p>
+<pre><code class="language-js">const express = require('express');
+const Channel = require('../models/Channel');
+
+const router = express.Router();
+
+// Get all channels
+router.get('/', async (req, res) =&gt; {
+    try {
+        const channels = await Channel.find().populate('owner', 'username');
+        res.json(channels);
+    } catch (error) {
+        res.status(500).send('Server error');
+    }
+});
+
+module.exports = router;
+</code></pre>
+<p>Bu route'ları <code>server.js</code> dosyasına entegre edin.</p>
+<pre><code class="language-js">const channelRoutes = require('./routes/channels');
+app.use('/api/channels', channelRoutes);
+</code></pre>
+<h5 id="frontend-1"><a class="header" href="#frontend-1">Frontend</a></h5>
+<p>Kanalları görüntülemek için bileşenleri ayarlayın.</p>
+<pre><code class="language-js">// ChannelList.js
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+const ChannelList = () =&gt; {
+    const [channels
+
+, setChannels] = useState([]);
+
+    useEffect(() =&gt; {
+        const fetchChannels = async () =&gt; {
+            const res = await axios.get('http://localhost:5000/api/channels');
+            setChannels(res.data);
+        };
+
+        fetchChannels();
+    }, []);
+
+    return (
+        &lt;div&gt;
+            {channels.map(channel =&gt; (
+                &lt;div key={channel._id}&gt;
+                    &lt;img src={channel.avatar} alt={channel.title} /&gt;
+                    &lt;h3&gt;{channel.title}&lt;/h3&gt;
+                    &lt;p&gt;{channel.description}&lt;/p&gt;
+                    &lt;p&gt;{channel.online ? 'Online' : 'Offline'}&lt;/p&gt;
+                &lt;/div&gt;
+            ))}
+        &lt;/div&gt;
+    );
+};
+
+export default ChannelList;
+</code></pre>
+<h3 id="sohbet-sistemi"><a class="header" href="#sohbet-sistemi">Sohbet Sistemi</a></h3>
+<h5 id="backend-2"><a class="header" href="#backend-2">Backend</a></h5>
+<p>Sohbet mesajları için bir <code>ChatMessage.js</code> modeli oluşturun.</p>
+<pre><code class="language-js">const mongoose = require('mongoose');
+
+const ChatMessageSchema = new mongoose.Schema({
+    channel: { type: mongoose.Schema.Types.ObjectId, ref: 'Channel', required: true },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    message: { type: String, required: true },
+    createdAt: { type: Date, default: Date.now },
+});
+
+module.exports = mongoose.model('ChatMessage', ChatMessageSchema);
+</code></pre>
+<p>Sohbet mesajlarını almak ve göndermek için route'lar oluşturun.</p>
+<pre><code class="language-js">const express = require('express');
+const ChatMessage = require('../models/ChatMessage');
+
+const router = express.Router();
+
+// Get chat messages for a channel
+router.get('/:channelId', async (req, res) =&gt; {
+    try {
+        const messages = await ChatMessage.find({ channel: req.params.channelId }).populate('user', 'username');
+        res.json(messages);
+    } catch (error) {
+        res.status(500).send('Server error');
+    }
+});
+
+// Send a chat message
+router.post('/:channelId', async (req, res) =&gt; {
+    const { userId, message } = req.body;
+
+    try {
+        const chatMessage = new ChatMessage({
+            channel: req.params.channelId,
+            user: userId,
+            message,
+        });
+
+        await chatMessage.save();
+        res.status(201).send('Message sent');
+    } catch (error) {
+        res.status(400).send(error.message);
+    }
+});
+
+module.exports = router;
+</code></pre>
+<p>Bu route'ları <code>server.js</code> dosyasına entegre edin.</p>
+<pre><code class="language-js">const chatRoutes = require('./routes/chat');
+app.use('/api/chat', chatRoutes);
+</code></pre>
+<h5 id="frontend-2"><a class="header" href="#frontend-2">Frontend</a></h5>
+<p>Sohbet mesajlarını görüntülemek ve göndermek için bileşenleri ayarlayın.</p>
+<pre><code class="language-js">// Chat.js
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+const Chat = ({ channelId, userId }) =&gt; {
+    const [messages, setMessages] = useState([]);
+    const [message, setMessage] = useState('');
+
+    useEffect(() =&gt; {
+        const fetchMessages = async () =&gt; {
+            const res = await axios.get(`http://localhost:5000/api/chat/${channelId}`);
+            setMessages(res.data);
+        };
+
+        fetchMessages();
+    }, [channelId]);
+
+    const handleSendMessage = async (e) =&gt; {
+        e.preventDefault();
+        if (message.trim()) {
+            await axios.post(`http://localhost:5000/api/chat/${channelId}`, { userId, message });
+            setMessage('');
+            const res = await axios.get(`http://localhost:5000/api/chat/${channelId}`);
+            setMessages(res.data);
+        }
+    };
+
+    return (
+        &lt;div&gt;
+            &lt;div&gt;
+                {messages.map((msg) =&gt; (
+                    &lt;p key={msg._id}&gt;&lt;strong&gt;{msg.user.username}&lt;/strong&gt;: {msg.message}&lt;/p&gt;
+                ))}
+            &lt;/div&gt;
+            &lt;form onSubmit={handleSendMessage}&gt;
+                &lt;input type="text" value={message} onChange={(e) =&gt; setMessage(e.target.value)} placeholder="Type a message" required /&gt;
+                &lt;button type="submit"&gt;Send&lt;/button&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    );
+};
+
+export default Chat;
+</code></pre>
+<h3 id="sonuç"><a class="header" href="#sonuç">Sonuç</a></h3>
+<p>Bu eğitim, MERN stack kullanarak bir Twitch klon uygulaması oluşturma konusunda kapsamlı bir rehber sunmaktadır. Açıklanan işlevler, orijinal Twitch platformunun temel özelliklerini yansıtan sağlam ve özellik açısından zengin bir uygulama sağlar. Her bölüm, yazılım geliştirme alanında beklenen titiz standartları yansıtacak şekilde ayrıntılı ve kesin olarak tasarlanmıştır.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="socketio-ile-mern-stack"><a class="header" href="#socketio-ile-mern-stack">Socket.io ile MERN Stack</a></h1>
+<h2 id="teknolojilere-giriş"><a class="header" href="#teknolojilere-giriş">Teknolojilere Giriş</a></h2>
+<p>Bu eğitimde, MERN stack'e derinlemesine bakacağız. MERN, MongoDB, Express.js, React.js ve Node.js anlamına gelir. Ek olarak, gerçek zamanlı sohbet işlevselliği için Socket.io'yu entegre edeceğiz. Bu teknolojilerin her biri, tam özellikli bir web uygulaması oluşturmak için kritik bir rol oynamaktadır. Her bileşene kısa bir giriş yaparak başlayalım.</p>
+<h2 id="mongodb"><a class="header" href="#mongodb">MongoDB</a></h2>
+<p>MongoDB, verileri esnek, JSON benzeri bir formatta saklayan bir NoSQL veritabanıdır. Modern web uygulamalarının büyük veri hacimlerini işleyebilmesi için ölçeklenebilirlik ve esneklik sunar.</p>
+<h2 id="expressjs"><a class="header" href="#expressjs">Express.js</a></h2>
+<p>Express.js, Node.js için bir web uygulama framework'üdür. API'ler oluşturmayı basitleştiren bir dizi middleware bileşeni sağlayarak web ve mobil uygulamalar geliştirmek için güçlü bir özellik seti sunar.</p>
+<h2 id="reactjs"><a class="header" href="#reactjs">React.js</a></h2>
+<p>React.js, kullanıcı arayüzleri oluşturmak için bir JavaScript kütüphanesidir. Yeniden kullanılabilir UI bileşenleri oluşturmayı, karmaşık uygulamaların durumunu yönetmeyi ve veri değişikliklerinde doğru bileşenleri verimli bir şekilde güncelleyip render etmeyi sağlar.</p>
+<h2 id="nodejs"><a class="header" href="#nodejs">Node.js</a></h2>
+<p>Node.js, Chrome'un V8 JavaScript motoru üzerine inşa edilmiş bir JavaScript runtime'dır. JavaScript ile sunucu tarafında ölçeklenebilir ağ uygulamaları oluşturmayı sağlar.</p>
+<h2 id="socketio"><a class="header" href="#socketio">Socket.io</a></h2>
+<p>Socket.io, web istemcileri ve sunucuları arasında gerçek zamanlı, çift yönlü ve olay tabanlı iletişim sağlayan bir kütüphanedir. Genellikle sohbet uygulamaları, gerçek zamanlı analizler ve işbirliği araçları oluşturmak için kullanılır.</p>
+<h2 id="mern-stack-uygulamasının-mimarisi"><a class="header" href="#mern-stack-uygulamasının-mimarisi">MERN Stack Uygulamasının Mimarisi</a></h2>
+<p>MERN stack uygulamamızın mimarisi şu bileşenlerden oluşacaktır:</p>
+<ol>
+<li>
+<p><strong>İstemci Tarafı (Frontend)</strong></p>
+<ul>
+<li>Frontend, React.js kullanılarak oluşturulacaktır. Verileri almak ve görüntülemek için backend ile API çağrıları yapacaktır.</li>
+</ul>
+</li>
+<li>
+<p><strong>Sunucu Tarafı (Backend)</strong></p>
+<ul>
+<li>Backend, Node.js ve Express.js kullanılarak oluşturulacaktır. İstemci isteklerini işleyip veritabanı ile etkileşime geçecek ve API uç noktalarını sunacaktır.</li>
+<li>Uygulamanın verilerini depolayıp yönetmek için MongoDB kullanılacaktır.</li>
+<li>Sohbet işlevselliği gibi gerçek zamanlı iletişim sağlamak için sunucuya Socket.io entegre edilecektir.</li>
+</ul>
+</li>
+</ol>
+<h2 id="her-bileşen-İçin-detaylı-adımlar"><a class="header" href="#her-bileşen-İçin-detaylı-adımlar">Her Bileşen İçin Detaylı Adımlar</a></h2>
+<h2 id="reactjs-1"><a class="header" href="#reactjs-1">React.js</a></h2>
+<ol>
+<li>
+<p><strong>React Kurulumu</strong></p>
+<ul>
+<li>Node.js ve npm (Node Package Manager) kurun.</li>
+<li>Create React App kullanarak yeni bir React uygulaması oluşturun:
+<pre><code class="language-bash">npx create-react-app my-app
+cd my-app
+npm start
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Bileşenlerin Oluşturulması</strong></p>
+<ul>
+<li>Uygulamanızı yeniden kullanılabilir bileşenlerle yapılandırın. Örneğin, bir sohbet arayüzü için <code>Chat</code> bileşeni ve mesajları görüntülemek için <code>MessageList</code> bileşeni oluşturabilirsiniz.</li>
+</ul>
+</li>
+<li>
+<p><strong>Durum Yönetimi</strong></p>
+<ul>
+<li>React'ın durum yönetimini kullanarak uygulamanın durumunu yönetin. <code>useState</code> ve <code>useEffect</code> gibi hook'ları kullanarak durumu yönetin ve güncelleyin.</li>
+</ul>
+</li>
+<li>
+<p><strong>API Çağrıları Yapma</strong></p>
+<ul>
+<li>Backend ile etkileşimde bulunmak için <code>axios</code> kütüphanesini veya yerel <code>fetch</code> API'sini kullanın. React uygulamanızın CRUD (Create, Read, Update, Delete) işlemlerini gerçekleştirebilmesi için Express sunucusuyla etkileşime geçmesini sağlayın.</li>
+</ul>
+</li>
+</ol>
+<h2 id="expressjs-1"><a class="header" href="#expressjs-1">Express.js</a></h2>
+<ol>
+<li>
+<p><strong>Express Kurulumu</strong></p>
+<ul>
+<li>Yeni bir Node.js projesi başlatın ve Express'i kurun:
+<pre><code class="language-bash">mkdir my-app-backend
+cd my-app-backend
+npm init -y
+npm install express
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Sunucunun Oluşturulması</strong></p>
+<ul>
+<li><code>index.js</code> dosyasında bir Express sunucusu oluşturun:
+<pre><code class="language-javascript">const express = require('express');
+const app = express();
+const port = 3001;
+
+app.use(express.json());
+
+app.get('/', (req, res) =&gt; {
+  res.send('Hello World!');
+});
+
+app.listen(port, () =&gt; {
+  console.log(`Server is running on http://localhost:${port}`);
+});
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>API Uç Noktalarının Tanımlanması</strong></p>
+<ul>
+<li>API'niz için çeşitli route'lar tanımlayın. Örneğin, kullanıcı kimlik doğrulaması, veri çekme ve veri gönderme için route'lar oluşturabilirsiniz.</li>
+</ul>
+</li>
+</ol>
+<h2 id="mongodb-1"><a class="header" href="#mongodb-1">MongoDB</a></h2>
+<ol>
+<li>
+<p><strong>MongoDB Kurulumu</strong></p>
+<ul>
+<li>MongoDB'yi yerel makinenize kurun veya MongoDB Atlas gibi bir bulut hizmeti kullanın.</li>
+<li>Node.js uygulamanızdan MongoDB ile etkileşime geçmek için <code>mongoose</code> kütüphanesini kurun:
+<pre><code class="language-bash">npm install mongoose
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>MongoDB'ye Bağlanma</strong></p>
+<ul>
+<li>Express sunucunuzda MongoDB veritabanına bağlanın:
+<pre><code class="language-javascript">const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost:27017/mydatabase', { useNewUrlParser: true, useUnifiedTopology: true });
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () =&gt; {
+  console.log('Connected to MongoDB');
+});
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Şema ve Modellerin Oluşturulması</strong></p>
+<ul>
+<li>Verileriniz için şema ve modeller tanımlayın. Örneğin, bir User modeli oluşturun:
+<pre><code class="language-javascript">const userSchema = new mongoose.Schema({
+  username: String,
+  password: String
+});
+
+const User = mongoose.model('User', userSchema);
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="socketio-1"><a class="header" href="#socketio-1">Socket.io</a></h2>
+<ol>
+<li>
+<p><strong>Socket.io Kurulumu</strong></p>
+<ul>
+<li>Express sunucunuza Socket.io'yu kurun:
+<pre><code class="language-bash">npm install socket.io
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Socket.io Entegrasyonu</strong></p>
+<ul>
+<li>Express sunucunuza Socket.io'yu entegre edin:
+<pre><code class="language-javascript">const http = require('http');
+const socketIo = require('socket.io');
+
+const server = http.createServer(app);
+const io = socketIo(server);
+
+io.on('connection', (socket) =&gt; {
+  console.log('a user connected');
+
+  socket.on('disconnect', () =&gt; {
+    console.log('user disconnected');
+  });
+
+  socket.on('chat message', (msg) =&gt; {
+    io.emit('chat message', msg);
+  });
+});
+
+server.listen(port, () =&gt; {
+  console.log(`Server is running on http://localhost:${port}`);
+});
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Socket.io'yu React'e Entegre Etme</strong></p>
+<ul>
+<li>
+<p>React uygulamanıza <code>socket.io-client</code> kütüphanesini kurun:</p>
+<pre><code class="language-bash">npm install socket.io-client
+</code></pre>
+</li>
+<li>
+<p>React bileşenlerinizden Socket.io sunucusuna bağlanın:</p>
+<pre><code class="language-javascript">import io from 'socket.io-client';
+import React, { useState, useEffect } from 'react';
+
+const socket = io('http://localhost:3001');
+
+function Chat() {
+  const [messages, setMessages] = useState([]);
+  const [input, setInput] = useState('');
+
+  useEffect(() =&gt; {
+    socket.on('chat message', (msg) =&gt; {
+      setMessages([...messages, msg]);
+    });
+  }, [messages]);
+
+  const sendMessage = () =&gt; {
+    socket.emit('chat message', input);
+    setInput('');
+  };
+
+  return (
+    &lt;div&gt;
+      &lt;ul&gt;
+        {messages.map((msg, index) =&gt; (
+          &lt;li key={index}&gt;{msg}&lt;/li&gt;
+        ))}
+      &lt;/ul&gt;
+      &lt;input
+        type="text"
+        value={input}
+        onChange={(e) =&gt; setInput(e.target.value)}
+      /&gt;
+      &lt;button onClick={sendMessage}&gt;Send&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default Chat;
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="sonuç-1"><a class="header" href="#sonuç-1">Sonuç</a></h2>
+<p>Bu eğitimde, MERN stack'in temel bileşenlerini ve gerçek zamanlı sohbet işlevselliği için Socket.io'nun nasıl entegre edileceğini ele aldık. Her bölüm, React, Express, MongoDB ve Socket.io'nun kurulum ve entegrasyon sürecini detaylı bir şekilde sundu. Bu adımları takip ederek, MERN stack'in gücünden ve gerçek zamanlı iletişimden yararlanan sağlam bir web uygulaması oluşturabilirsiniz.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mern-stack-uygulamasında-mongodb"><a class="header" href="#mern-stack-uygulamasında-mongodb">MERN Stack Uygulamasında MongoDB</a></h1>
+<h2 id="giriş"><a class="header" href="#giriş">Giriş</a></h2>
+<p>Bu rehber, MERN (MongoDB, Express, React, Node.js) stack uygulamasında MongoDB kullanımıyla ilgili kapsamlı ve detaylı bir kılavuz sunmaktadır. Bu belge, yanlışlıkları veya yanlış anlamaları ele alarak bilgileri kesin ve bilimsel bir şekilde sunmayı amaçlamaktadır. Yazılım geliştiriciler için uygun bir şekilde hazırlanmıştır.</p>
+<h2 id="mongodbnin-genel-bakışı"><a class="header" href="#mongodbnin-genel-bakışı">MongoDB'nin Genel Bakışı</a></h2>
+<p>MongoDB, verileri esnek, JSON benzeri bir format olan BSON (Binary JSON) içinde saklayan yaygın olarak kullanılan bir NoSQL veritabanıdır. Bu format, veri yapısının zamanla evrilebileceği veya veri şemasının kesin olarak tanımlanmadığı uygulamalar için özellikle uygundur. Bir MERN stack uygulamasında, MongoDB, veri depolama ve geri alma işlemlerini yöneten veritabanı katmanını oluşturur.</p>
+<h3 id="mongodbnin-temel-Özellikleri"><a class="header" href="#mongodbnin-temel-Özellikleri">MongoDB'nin Temel Özellikleri</a></h3>
+<ol>
+<li>
+<p><strong>Döküman Odaklı Depolama</strong>:</p>
+<ul>
+<li>MongoDB, verileri JavaScript nesnelerine benzer dökümanlar içinde saklar. Bu format, iç içe geçmiş yapılar ve diziler için yüksek esneklik sağlar.</li>
+</ul>
+</li>
+<li>
+<p><strong>Ölçeklenebilirlik</strong>:</p>
+<ul>
+<li>MongoDB, sharding yoluyla yatay ölçeklemeyi destekler, bu da büyük veri hacimlerini ve yüksek okuma ve yazma işlem hacmini işleyebilecek uygulamalar için uygundur. AWS gibi bulut platformlarında kolayca dağıtılabilir ve yönetilen MongoDB hizmetleri (örneğin, Amazon DocumentDB) sunulur.</li>
+</ul>
+</li>
+<li>
+<p><strong>Performans</strong>:</p>
+<ul>
+<li>MongoDB'nin performansı, yerleşik önbellekleme mekanizması ile artırılır. Sık erişilen veriler bellekte saklanır, bu da tekrar tekrar disk erişimi gereksinimini azaltır ve okuma performansını artırır.</li>
+</ul>
+</li>
+<li>
+<p><strong>Yüksek Erişilebilirlik</strong>:</p>
+<ul>
+<li>MongoDB, otomatik replikasyon yoluyla yüksek erişilebilirlik sağlar. Replica sets, veri yedeklemesi ve failover yetenekleri sunar, böylece bazı düğümler arızalansa bile veritabanının çalışmaya devam etmesini sağlar.</li>
+</ul>
+</li>
+<li>
+<p><strong>Esnek Şema</strong>:</p>
+<ul>
+<li>İlişkisel veritabanlarının aksine, MongoDB önceden tanımlanmış bir şema gerektirmez. Bu esneklik, geliştiricilerin aynı koleksiyon içinde farklı veri türlerini saklamasına ve veri yapısını önemli bir kesinti veya geçiş çabası olmadan gerektiğinde değiştirmesine olanak tanır.</li>
+</ul>
+</li>
+</ol>
+<h2 id="mongodbnin-kurulumu"><a class="header" href="#mongodbnin-kurulumu">MongoDB'nin Kurulumu</a></h2>
+<h3 id="kurulum"><a class="header" href="#kurulum">Kurulum</a></h3>
+<p>MongoDB'yi kurmak için, işletim sisteminize özel <a href="https://docs.mongodb.com/manual/installation/">resmi MongoDB kurulum kılavuzu</a> üzerindeki talimatları izleyin.</p>
+<h3 id="mongodbye-bağlanma"><a class="header" href="#mongodbye-bağlanma">MongoDB'ye Bağlanma</a></h3>
+<p>Node.js uygulamasında, genellikle MongoDB ile etkileşim kurmak için <code>mongoose</code> kütüphanesi kullanılır. Mongoose, uygulama verilerini modellemek için basit ve şemaya dayalı bir çözüm sunar.</p>
+<pre><code class="language-javascript">const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost:27017/yourDatabase', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () =&gt; {
+  console.log('Connected to MongoDB');
+});
+</code></pre>
+<h2 id="Şemaların-ve-modellerin-tanımlanması"><a class="header" href="#Şemaların-ve-modellerin-tanımlanması">Şemaların ve Modellerin Tanımlanması</a></h2>
+<p>MongoDB'de şemalar, bir koleksiyon içindeki dökümanların yapısını tanımlamak için kullanılır. Mongoose, şemalar ve modeller tanımlamamıza olanak tanır, bu da veri tutarlılığını ve doğrulamayı sağlar.</p>
+<h3 id="Örnek-Şema-ve-model"><a class="header" href="#Örnek-Şema-ve-model">Örnek Şema ve Model</a></h3>
+<pre><code class="language-javascript">const { Schema, model } = require('mongoose');
+
+const userSchema = new Schema({
+  username: { type: String, required: true, unique: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+}, {
+  timestamps: true,
+});
+
+const User = model('User', userSchema);
+</code></pre>
+<h3 id="crud-İşlemleri"><a class="header" href="#crud-İşlemleri">CRUD İşlemleri</a></h3>
+<p>Model tanımlandıktan sonra, çeşitli CRUD (Create, Read, Update, Delete) işlemleri gerçekleştirebiliriz.</p>
+<h4 id="create"><a class="header" href="#create">Create</a></h4>
+<pre><code class="language-javascript">const newUser = new User({
+  username: 'johndoe',
+  email: 'johndoe@example.com',
+  password: 'securepassword',
+});
+
+newUser.save((err) =&gt; {
+  if (err) return console.error(err);
+  console.log('User created successfully');
+});
+</code></pre>
+<h4 id="read"><a class="header" href="#read">Read</a></h4>
+<pre><code class="language-javascript">User.find({ username: 'johndoe' }, (err, users) =&gt; {
+  if (err) return console.error(err);
+  console.log(users);
+});
+</code></pre>
+<h4 id="update"><a class="header" href="#update">Update</a></h4>
+<pre><code class="language-javascript">User.updateOne({ username: 'johndoe' }, { email: 'john.doe@example.com' }, (err) =&gt; {
+  if (err) return console.error(err);
+  console.log('User updated successfully');
+});
+</code></pre>
+<h4 id="delete"><a class="header" href="#delete">Delete</a></h4>
+<pre><code class="language-javascript">User.deleteOne({ username: 'johndoe' }, (err) =&gt; {
+  if (err) return console.error(err);
+  console.log('User deleted successfully');
+});
+</code></pre>
+<h2 id="mongodbnin-dağıtımı"><a class="header" href="#mongodbnin-dağıtımı">MongoDB'nin Dağıtımı</a></h2>
+<h3 id="mongodbnin-Ölçeklenmesi"><a class="header" href="#mongodbnin-Ölçeklenmesi">MongoDB'nin Ölçeklenmesi</a></h3>
+<p>MongoDB'yi özellikle üretim ortamında dağıtırken, ölçeklenebilirlik ve performansı göz önünde bulundurmak önemlidir. Amazon DocumentDB veya MongoDB Atlas gibi yönetilen hizmetler, otomatik ölçekleme, izleme ve yedekleme sağlar, büyük veritabanlarını yönetmeyi kolaylaştırır.</p>
+<h3 id="yüksek-erişilebilirlik-ve-replikasyon"><a class="header" href="#yüksek-erişilebilirlik-ve-replikasyon">Yüksek Erişilebilirlik ve Replikasyon</a></h3>
+<p>Yüksek erişilebilirliği sağlamak için, MongoDB'yi bir replica set olarak dağıtın. Bir replica set, verileri birbirleri arasında replik eden birden fazla MongoDB örneğinden oluşur. Bu yapı, veri yedekliliği ve failover yetenekleri sağlar.</p>
+<pre><code class="language-json">{
+  "_id": "rs0",
+  "members": [
+    { "_id": 0, "host": "localhost:27017" },
+    { "_id": 1, "host": "localhost:27018" },
+    { "_id": 2, "host": "localhost:27019" }
+  ]
+}
+</code></pre>
+<h2 id="sonuç-2"><a class="header" href="#sonuç-2">Sonuç</a></h2>
+<p>MongoDB, MERN stack ile mükemmel bir şekilde entegre olan güçlü ve esnek bir NoSQL veritabanıdır. Döküman odaklı depolama, ölçeklenebilirlik, performans ve yüksek erişilebilirlik özellikleri, modern web uygulamaları için mükemmel bir seçim yapar. Bu rehberde belirtilen ilke ve örnekleri takip ederek, geliştiriciler MongoDB'yi uygulamalarında etkili bir şekilde kullanabilirler.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="expressjs-ile-api-oluşturma"><a class="header" href="#expressjs-ile-api-oluşturma">Express.js ile API Oluşturma</a></h1>
+<h2 id="giriş-1"><a class="header" href="#giriş-1">Giriş</a></h2>
+<p>Bu eğitimde, web uygulamaları ve API'ler oluşturma sürecini basitleştiren minimal ve esnek bir Node.js framework'ü olan Express.js'i inceleyeceğiz. Temel özelliklerini, routing, middleware entegrasyonu ve performans konularını tartışacağız. Bu eğitim, yazılım geliştirme alanında beklenen standartları yansıtarak, detaylı, kesin ve titiz bir açıklama sağlamayı amaçlamaktadır.</p>
+<h2 id="neden-expressjs-seçilmeli"><a class="header" href="#neden-expressjs-seçilmeli">Neden Express.js Seçilmeli?</a></h2>
+<p>Express.js, sadeliği, esnekliği ve performansı nedeniyle sunucu tarafı uygulamaları oluşturmak için popüler bir tercihtir. İşte Express.js'i seçmenin bazı önemli nedenleri:</p>
+<ol>
+<li><strong>Minimalist ve Esnek</strong>: Express.js, web uygulamaları ve API'ler oluşturmayı kolaylaştıran minimal bir framework sunar.</li>
+<li><strong>Middleware Entegrasyonu</strong>: Express.js, bir isteğin sunucu kontrolcüsüne ulaşmadan önce çeşitli yönlerini ele almayı sağlayan güçlü middleware entegrasyonu sağlar.</li>
+<li><strong>Yerleşik Routing</strong>: Express.js, uygulama rotalarının tanımını basitleştiren yerleşik routing yeteneklerine sahiptir.</li>
+<li><strong>Performans</strong>: Express.js, çok sayıda eşzamanlı isteği işleyebilme kapasitesine sahiptir, bu da gerçek zamanlı uygulamalar için uygundur.</li>
+<li><strong>Hızlı Geliştirme</strong>: Express.js, küçük ve orta ölçekli uygulamalar için maliyet ve geliştirme hızının önemli olduğu durumlarda hızlı geliştirme imkanı sağlar.</li>
+</ol>
+<h2 id="expressjs-kurulumu"><a class="header" href="#expressjs-kurulumu">Express.js Kurulumu</a></h2>
+<p>Express.js'e başlamak için şu adımları izleyin:</p>
+<ol>
+<li>
+<p><strong>Node.js Kurulumu</strong>: Makinenizde Node.js'in yüklü olduğundan emin olun. Node.js'i <a href="https://nodejs.org/">Node.js resmi web sitesi</a> adresinden indirebilirsiniz.</p>
+</li>
+<li>
+<p><strong>Yeni Proje Başlatma</strong>:</p>
+<pre><code class="language-bash">mkdir express-api
+cd express-api
+npm init -y
+</code></pre>
+</li>
+<li>
+<p><strong>Express.js Kurulumu</strong>:</p>
+<pre><code class="language-bash">npm install express
+</code></pre>
+</li>
+</ol>
+<h2 id="temel-bir-express-sunucusu-oluşturma"><a class="header" href="#temel-bir-express-sunucusu-oluşturma">Temel Bir Express Sunucusu Oluşturma</a></h2>
+<p>Yeni bir <code>server.js</code> dosyası oluşturun ve temel bir Express sunucusu kurmak için aşağıdaki kodu ekleyin:</p>
+<pre><code class="language-javascript">const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.get('/', (req, res) =&gt; {
+    res.send('Hello, World!');
+});
+
+app.listen(PORT, () =&gt; {
+    console.log(`Server is running on port ${PORT}`);
+});
+</code></pre>
+<p>Sunucuyu çalıştırın:</p>
+<pre><code class="language-bash">node server.js
+</code></pre>
+<p>Tarayıcınızda <code>http://localhost:3000</code> adresine giderek "Hello, World!" mesajını görün.</p>
+<h2 id="middleware-uygulaması"><a class="header" href="#middleware-uygulaması">Middleware Uygulaması</a></h2>
+<p>Middleware fonksiyonları, istek nesnesine (<code>req</code>), yanıt nesnesine (<code>res</code>) ve uygulamanın istek-yanıt döngüsündeki bir sonraki middleware fonksiyonuna erişimi olan fonksiyonlardır.</p>
+<h2 id="Örnek-middleware"><a class="header" href="#Örnek-middleware">Örnek Middleware</a></h2>
+<p>İstek detaylarını loglamak için bir middleware fonksiyonu oluşturun:</p>
+<pre><code class="language-javascript">const logger = (req, res, next) =&gt; {
+    console.log(`${req.method} ${req.url}`);
+    next();
+};
+
+app.use(logger);
+</code></pre>
+<h2 id="expressjs-ile-routing"><a class="header" href="#expressjs-ile-routing">Express.js ile Routing</a></h2>
+<p>Express.js, farklı endpoint'ler için rotalar tanımlamayı kolaylaştırır.</p>
+<h2 id="Örnek-rotalar"><a class="header" href="#Örnek-rotalar">Örnek Rotalar</a></h2>
+<p>Kullanıcı verilerini işlemek için yeni bir rota tanımlayın:</p>
+<pre><code class="language-javascript">app.get('/users', (req, res) =&gt; {
+    res.send('List of users');
+});
+
+app.post('/users', (req, res) =&gt; {
+    res.send('Create a new user');
+});
+</code></pre>
+<h2 id="veri-doğrulama-ve-kimlik-doğrulama-için-middleware"><a class="header" href="#veri-doğrulama-ve-kimlik-doğrulama-için-middleware">Veri Doğrulama ve Kimlik Doğrulama için Middleware</a></h2>
+<p>Express.js, isteğin kontrolcüye ulaşmadan önce veri doğrulama ve kimlik doğrulama gibi görevler için middleware entegrasyonuna izin verir.</p>
+<h2 id="veri-doğrulama-middleware"><a class="header" href="#veri-doğrulama-middleware">Veri Doğrulama Middleware</a></h2>
+<pre><code class="language-javascript">const validateUser = (req, res, next) =&gt; {
+    const { name, email } = req.body;
+    if (!name || !email) {
+        return res.status(400).send('Name and email are required');
+    }
+    next();
+};
+
+app.post('/users', validateUser, (req, res) =&gt; {
+    res.send('User data is valid');
+});
+</code></pre>
+<h2 id="kimlik-doğrulama-middleware"><a class="header" href="#kimlik-doğrulama-middleware">Kimlik Doğrulama Middleware</a></h2>
+<pre><code class="language-javascript">const authenticate = (req, res, next) =&gt; {
+    const token = req.header('Authorization');
+    if (!token) {
+        return res.status(401).send('Access denied. No token provided.');
+    }
+    // Token doğrulama mantığı burada
+    next();
+};
+
+app.get('/protected-route', authenticate, (req, res) =&gt; {
+    res.send('This is a protected route');
+});
+</code></pre>
+<h2 id="socketio-ile-gerçek-zamanlı-uygulamalar"><a class="header" href="#socketio-ile-gerçek-zamanlı-uygulamalar">Socket.io ile Gerçek Zamanlı Uygulamalar</a></h2>
+<p>Gerçek zamanlı iletişim yetenekleri eklemek için, Express.js ile Socket.io'yu entegre edebiliriz.</p>
+<h2 id="socketio-kurulumu"><a class="header" href="#socketio-kurulumu">Socket.io Kurulumu</a></h2>
+<p>Socket.io'yu kurun:</p>
+<pre><code class="language-bash">npm install socket.io
+</code></pre>
+<p>Socket.io'yu entegre etmek için <code>server.js</code> dosyasını değiştirin:</p>
+<pre><code class="language-javascript">const express = require('express');
+const http = require('http');
+const socketIo = require('socket.io');
+
+const app = express();
+const server = http.createServer(app);
+const io = socketIo(server);
+
+io.on('connection', (socket) =&gt; {
+    console.log('New client connected');
+    socket.on('disconnect', () =&gt; {
+        console.log('Client disconnected');
+    });
+});
+
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () =&gt; {
+    console.log(`Server is running on port ${PORT}`);
+});
+</code></pre>
+<h2 id="sonuç-3"><a class="header" href="#sonuç-3">Sonuç</a></h2>
+<p>Express.js, web uygulamaları ve API'ler oluşturmak için güçlü ve esnek bir framework'tür. Minimalist tasarımı, güçlü middleware entegrasyonu, yerleşik routing ve yüksek performans sunar. Bu eğitimi takip ederek, temel bir Express sunucusu kurabilir, çeşitli amaçlar için middleware uygulayabilir ve Socket.io ile gerçek zamanlı iletişim entegrasyonu sağlayabilirsiniz.</p>
+<p>Bu eğitim, yazılım geliştirme alanında beklenen titizlik ve standartları yansıtarak, detaylı ve kesin bir açıklama sağlamayı amaçlamaktadır.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mern-yığınında-react"><a class="header" href="#mern-yığınında-react">MERN Yığınında React</a></h1>
+<p>MERN yığınında, "R" harfi React'i ifade eder ve bu, ön uç geliştirme için kritik bir bileşendir. React, bir JavaScript kütüphanesidir, bir framework değildir ve kullanıcı arayüzleri oluşturmak için özel olarak tasarlanmıştır. Facebook ekibi tarafından oluşturulan React, verimliliği ve esnekliği nedeniyle geliştirici topluluğunda büyük popülerlik kazanmıştır.</p>
+<h2 id="react-nedir"><a class="header" href="#react-nedir">React Nedir?</a></h2>
+<p>React, kullanıcı arayüzleri oluşturmak için deklaratif, bileşen tabanlı bir JavaScript kütüphanesidir. Geliştiricilere, yeniden kullanılabilir UI bileşenleri oluşturmalarına olanak tanır, bu bileşenler karmaşık UI'lara birleştirilebilir. React'in birincil amacı, karmaşık kullanıcı arayüzlerini daha küçük ve yönetilebilir parçalara bölerek geliştirme ve bakımını kolaylaştırmaktır.</p>
+<h3 id="reactin-temel-Özellikleri"><a class="header" href="#reactin-temel-Özellikleri">React'in Temel Özellikleri</a></h3>
+<ol>
+<li>
+<p><strong>Bileşen Tabanlı Mimari</strong>: React, uygulama geliştirme için modüler bir yaklaşımı teşvik eder, UI'yi izole edilmiş ve yeniden kullanılabilir bileşenlere böler. Bu, kod tabanının yönetilmesini ve bakımını kolaylaştırır.</p>
+</li>
+<li>
+<p><strong>Virtual DOM</strong>: React, performansı artırmak için Virtual DOM kullanır. Virtual DOM, gerçek DOM'un hafif bir kopyasıdır ve React, UI'nin sadece değişen kısımlarını güncelleyerek daha hızlı ve daha akıcı kullanıcı etkileşimleri sağlar.</p>
+</li>
+<li>
+<p><strong>Deklaratif UI</strong>: React ile geliştiriciler, UI'nin nasıl görünmesi gerektiğini tanımlar ve React, bu tanıma uygun olarak gerçek DOM'u günceller. Bu yaklaşım, kodu daha öngörülebilir ve hata ayıklamayı daha kolay hale getirir.</p>
+</li>
+<li>
+<p><strong>JSX Sözdizimi</strong>: React, JavaScript içinde HTML benzeri kod yazmayı sağlayan bir sözdizimi uzantısı olan JSX kullanır. JSX, kodun okunabilirliğini artırır ve bileşen yapısını görselleştirmeye yardımcı olur.</p>
+</li>
+<li>
+<p><strong>Tek Yönlü Veri Bağlama</strong>: React, tek yönlü veri akışını izler, bu da uygulamayı daha öngörülebilir ve hata ayıklamayı daha kolay hale getirir. Veriler, parent bileşenlerden child bileşenlere props aracılığıyla akar.</p>
+</li>
+<li>
+<p><strong>React Hooks</strong>: React 16.8'de tanıtılan hooks, fonksiyonel bileşenlerde state ve diğer React özelliklerini kullanmaya olanak tanır, daha temiz ve daha fonksiyonel bir React geliştirme yaklaşımını teşvik eder.</p>
+</li>
+</ol>
+<h2 id="react-kullanmanın-avantajları"><a class="header" href="#react-kullanmanın-avantajları">React Kullanmanın Avantajları</a></h2>
+<ul>
+<li><strong>Performans</strong>: React'in virtual DOM'u, gerçek DOM ile doğrudan etkileşimleri en aza indirerek performansı önemli ölçüde artırır, bu da yavaş ve kaynak yoğun olabilir.</li>
+<li><strong>Yeniden Kullanılabilirlik</strong>: Bileşen tabanlı mimari, geliştiricilerin kodu yeniden kullanmasına olanak tanır, bu da tekrarları azaltır ve geliştirme sürecini hızlandırır.</li>
+<li><strong>Ölçeklenebilirlik</strong>: React'in modüler yaklaşımı, uygulamaları ölçeklendirmeyi kolaylaştırır, bileşenleri ekleyip değiştirirken uygulamanın geri kalanını etkilemez.</li>
+<li><strong>Ekosistem</strong>: React'in zengin bir ekosistemi vardır, çok sayıda kütüphane, araç ve topluluk desteği, çözümler ve kaynaklar bulmayı kolaylaştırır.</li>
+</ul>
+<h2 id="react-projesi-kurulumu"><a class="header" href="#react-projesi-kurulumu">React Projesi Kurulumu</a></h2>
+<p>React'in avantajlarından biri, Create React App (CRA) gibi araçlarla yeni bir proje kurmanın kolaylığıdır. CRA, yeni bir React projesi için mantıklı bir varsayılan yapılandırma ayarlayan bir komut satırı aracıdır, geliştiricilerin kurulumla ilgili endişelenmeden hemen kodlamaya başlamasına olanak tanır.</p>
+<h3 id="cra-kullanarak-react-uygulaması-oluşturma-adımları"><a class="header" href="#cra-kullanarak-react-uygulaması-oluşturma-adımları">CRA Kullanarak React Uygulaması Oluşturma Adımları</a></h3>
+<ol>
+<li>
+<p><strong>Node.js ve npm Kurulumu</strong>: Makinenizde Node.js ve npm'in yüklü olduğundan emin olun. Bunları <a href="https://nodejs.org/">nodejs.org</a> adresinden indirip yükleyebilirsiniz.</p>
+</li>
+<li>
+<p><strong>Create React App Kurulumu</strong>: Terminalinizi açın ve Create React App'i global olarak kurmak için aşağıdaki komutu çalıştırın:</p>
+<pre><code class="language-bash">npm install -g create-react-app
+</code></pre>
+</li>
+<li>
+<p><strong>Yeni Bir React Projesi Oluşturma</strong>: Yeni bir React projesi oluşturmak için aşağıdaki komutu çalıştırın:</p>
+<pre><code class="language-bash">create-react-app my-app
+</code></pre>
+<p><code>my-app</code> ifadesini istediğiniz proje adıyla değiştirin.</p>
+</li>
+<li>
+<p><strong>Proje Dizini Değiştirme</strong>: Yeni projenizin dizinine geçin:</p>
+<pre><code class="language-bash">cd my-app
+</code></pre>
+</li>
+<li>
+<p><strong>Geliştirme Sunucusunu Başlatma</strong>: Geliştirme sunucusunu başlatmak için aşağıdaki komutu çalıştırın:</p>
+<pre><code class="language-bash">npm start
+</code></pre>
+<p>Bu, geliştirme sunucusunu başlatır ve uygulamayı varsayılan web tarayıcınızda açar.</p>
+</li>
+</ol>
+<h2 id="reactteki-temel-kavramlar"><a class="header" href="#reactteki-temel-kavramlar">React'teki Temel Kavramlar</a></h2>
+<p>Karmaşık uygulamalara dalmadan önce, React'teki bazı temel kavramları anlamak önemlidir.</p>
+<h3 id="bileşenler"><a class="header" href="#bileşenler">Bileşenler</a></h3>
+<p>Bileşenler, bir React uygulamasının yapı taşlarıdır. İki tür bileşen vardır:</p>
+<ul>
+<li><strong>Functional Components</strong>: JSX döndüren basit JavaScript fonksiyonlarıdır. Props kabul edebilirler ve state ve yaşam döngüsü metodları için hooks kullanırlar.</li>
+<li><strong>Class Components</strong>: <code>React.Component</code>i genişleten ve JSX döndürmek için <code>render</code> metoduna sahip ES6 sınıflarıdır. Class bileşenleri kendi state'lerini yönetebilir ve yaşam döngüsü metodlarına sahiptir.</li>
+</ul>
+<p>Functional Component Örneği:</p>
+<pre><code class="language-jsx">import React from 'react';
+
+function Greeting(props) {
+  return &lt;h1&gt;Hello, {props.name}!&lt;/h1&gt;;
+}
+
+export default Greeting;
+</code></pre>
+<p>Class Component Örneği:</p>
+<pre><code class="language-jsx">import React, { Component } from 'react';
+
+class Greeting extends Component {
+  render() {
+    return &lt;h1&gt;Hello, {this.props.name}!&lt;/h1&gt;;
+  }
+}
+
+export default Greeting;
+</code></pre>
+<h3 id="props-ve-state"><a class="header" href="#props-ve-state">Props ve State</a></h3>
+<ul>
+<li>
+<p><strong>Props</strong>: Props (properties'in kısaltması), parent bileşenlerden child bileşenlere geçirilen salt okunur özelliklerdir. Verileri ve olay işleyicilerini child bileşenlere iletmek için kullanılırlar.</p>
+</li>
+<li>
+<p><strong>State</strong>: State, bileşene özel olan ve zamanla değişebilen yerel veri deposudur. Bir bileşenin state'i değiştiğinde, bileşen yeni state'i yansıtmak için yeniden render edilir.</p>
+</li>
+</ul>
+<p>Class Component'te State Kullanımı Örneği:</p>
+<pre><code class="language-jsx">import React, { Component } from 'react';
+
+class Counter extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { count: 0 };
+  }
+
+  increment = () =&gt; {
+    this.setState({ count: this.state.count + 1 });
+  }
+
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;p&gt;Count: {this.state.count}&lt;/p&gt;
+        &lt;button onClick={this.increment}&gt;Increment&lt;/button&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+export default Counter;
+</code></pre>
+<p>Hooks ile Functional Component'te State Kullanımı Örneği:</p>
+<pre><code class="language-jsx">import React, { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Count: {count}&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;Increment&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default Counter;
+</code></pre>
+<h2 id="sonuç-4"><a class="header" href="#sonuç-4">Sonuç</a></h2>
+<p>React, kullanıcı arayüzleri oluşturmak için güçlü ve verimli bir kütüphanedir, bileşen tabanlı mimari, virtual DOM ve zengin ekosistem sunar. Create React App gibi araçlarla bir React projesi kurmak oldukça basittir ve bileşenler, props ve state gibi temel kavramları anlamak, ölçeklenebilir uygulamalar oluşturmak için gereklidir. React ile ilerledikçe, karmaşık kullanıcı arayüzlerini yönetmenin ve dinamik, duyarlı uygulamalar oluşturmanın daha kolay olduğunu göreceksiniz.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="nodejs-mern-stackin-sunucu-tarafı-motoru"><a class="header" href="#nodejs-mern-stackin-sunucu-tarafı-motoru">Node.js: MERN Stack'in Sunucu Tarafı Motoru</a></h1>
+<h2 id="nodejsin-genel-görünümü"><a class="header" href="#nodejsin-genel-görünümü">Node.js'in Genel Görünümü</a></h2>
+<p>Node.js, geliştiricilerin JavaScript kodunu sunucu tarafında yürütmesine olanak tanıyan açık kaynaklı, platformlar arası bir JavaScript çalışma zamanıdır. Chrome'un V8 JavaScript motoru üzerine kurulu olan Node.js, ölçeklenebilir ve yüksek performanslı ağ uygulamalarının geliştirilmesine imkan tanır.</p>
+<h2 id="nodejsin-mern-stack-İçindeki-Önemi"><a class="header" href="#nodejsin-mern-stack-İçindeki-Önemi">Node.js'in MERN Stack İçindeki Önemi</a></h2>
+<p>MongoDB, Express.js, React.js ve Node.js'den oluşan MERN stack, hem frontend hem de backend geliştirme için JavaScript'i kullanır. Node.js, tarayıcı dışında JavaScript kodunu yürüten sunucu tarafı motoru olarak önemli bir bileşendir. Stack boyunca tutarlılık sağlayarak geliştirmeyi basitleştirir ve verimliliği artırır.</p>
+<h2 id="nodejsin-avantajları"><a class="header" href="#nodejsin-avantajları">Node.js'in Avantajları</a></h2>
+<ol>
+<li>
+<p><strong>Yüksek Performans ve Ölçeklenebilirlik:</strong></p>
+<ul>
+<li>Node.js, çok sayıda eşzamanlı bağlantıyı işleme konusunda mükemmeldir ve veri yoğun uygulamalar için uygundur. Engellemeyen, olay güdümlü mimarisi, yüksek veri geçişi ve ölçeklenebilirlik sağlar; bu, gerçek zamanlı uygulamalar için esastır.</li>
+</ul>
+</li>
+<li>
+<p><strong>NPM Ekosistemi:</strong></p>
+<ul>
+<li>Node Package Manager (NPM), kapsamlı bir paket ve modül kütüphanesidir. Binlerce açık kaynaklı paketi uygulamalara kolayca entegre etmeyi sağlar. Geliştiriciler, bu paketlerin kullanıcı değerlendirmeleri, test kapsamı ve topluluk geri bildirimlerini kontrol ederek popülerliğini ve güvenilirliğini doğrulayabilirler.</li>
+</ul>
+</li>
+<li>
+<p><strong>Olay Güdümlü Mimari:</strong></p>
+<ul>
+<li>Node.js, olay güdümlü, engellemeyen bir I/O modeli kullanır, bu da gerçek zamanlı uygulamalar için son derece verimli olmasını sağlar. Bu mimari, Node.js'nin zaman alıcı işlemlerle tıkanmadan birden fazla isteği aynı anda ele almasına olanak tanır.</li>
+</ul>
+</li>
+</ol>
+<h2 id="bir-twitch-uygulaması-için-api-oluşturma"><a class="header" href="#bir-twitch-uygulaması-için-api-oluşturma">Bir Twitch Uygulaması için API Oluşturma</a></h2>
+<p>Node.js'in pratik uygulamasını göstermek için, chat işlevselliği <code>socket.io</code> kullanarak Twitch benzeri bir uygulama için basit bir API oluşturacağız.</p>
+<h3 id="gereksinimler"><a class="header" href="#gereksinimler">Gereksinimler</a></h3>
+<p>Aşağıdakilerin kurulu olduğundan emin olun:</p>
+<ul>
+<li>Node.js</li>
+<li>NPM</li>
+</ul>
+<h3 id="proje-kurulumu-1"><a class="header" href="#proje-kurulumu-1">Proje Kurulumu</a></h3>
+<ol>
+<li>
+<p><strong>Projeyi Başlatın:</strong></p>
+<pre><code class="language-bash">mkdir twitch-api
+cd twitch-api
+npm init -y
+</code></pre>
+</li>
+<li>
+<p><strong>Bağımlılıkları Yükleyin:</strong></p>
+<pre><code class="language-bash">npm install express socket.io
+</code></pre>
+</li>
+</ol>
+<h3 id="sunucu-oluşturma"><a class="header" href="#sunucu-oluşturma">Sunucu Oluşturma</a></h3>
+<ol>
+<li>
+<p><strong>Express Sunucusunu Kurun:</strong></p>
+<p><code>server.js</code> adlı bir dosya oluşturun ve aşağıdaki kodu ekleyin:</p>
+<pre><code class="language-javascript">const express = require('express');
+const http = require('http');
+const socketIo = require('socket.io');
+
+const app = express();
+const server = http.createServer(app);
+const io = socketIo(server);
+
+const PORT = process.env.PORT || 3000;
+
+app.get('/', (req, res) =&gt; {
+    res.send('Twitch-benzeri API\'ye Hoş Geldiniz');
+});
+
+server.listen(PORT, () =&gt; {
+    console.log(`Sunucu ${PORT} portunda çalışıyor`);
+});
+
+// Socket bağlantılarını yönetin
+io.on('connection', (socket) =&gt; {
+    console.log('Yeni bir müşteri bağlandı');
+
+    socket.on('disconnect', () =&gt; {
+        console.log('Müşteri bağlantısı kesildi');
+    });
+
+    socket.on('message', (message) =&gt; {
+        io.emit('message', message);
+    });
+});
+</code></pre>
+</li>
+<li>
+<p><strong>Sunucuyu Çalıştırın:</strong></p>
+<p>Terminalde aşağıdaki komutu çalıştırarak sunucuyu başlatın:</p>
+<pre><code class="language-bash">node server.js
+</code></pre>
+</li>
+</ol>
+<h3 id="socketio-ile-chat-fonksiyonelliğini-uygulama"><a class="header" href="#socketio-ile-chat-fonksiyonelliğini-uygulama"><code>socket.io</code> ile Chat Fonksiyonelliğini Uygulama</a></h3>
+<ol>
+<li>
+<p><strong>İstemci Tarafı Kurulumu:</strong></p>
+<p><code>public</code> adlı bir dizin oluşturun ve içinde <code>index.html</code> dosyası oluşturun:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Twitch Chat&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Twitch Chat&lt;/h1&gt;
+    &lt;input id="message" type="text" placeholder="Mesajınızı girin"&gt;
+    &lt;button onclick="sendMessage()"&gt;Gönder&lt;/button&gt;
+    &lt;ul id="messages"&gt;&lt;/ul&gt;
+
+    &lt;script src="/socket.io/socket.io.js"&gt;&lt;/script&gt;
+    &lt;script&gt;
+        const socket = io();
+
+        socket.on('message', (message) =&gt; {
+            const li = document.createElement('li');
+            li.textContent = message;
+            document.getElementById('messages').appendChild(li);
+        });
+
+        function sendMessage() {
+            const message = document.getElementById('message').value;
+            socket.emit('message', message);
+            document.getElementById('message').value = '';
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</li>
+<li>
+<p><strong>Statik Dosyaları Sunma:</strong></p>
+<p><code>server.js</code> dosyasını statik dosyaları sunacak şekilde değiştirin:</p>
+<pre><code class="language-javascript">app.use(express.static('public'));
+</code></pre>
+</li>
+</ol>
+<h2 id="sonuç-5"><a class="header" href="#sonuç-5">Sonuç</a></h2>
+<p>Node.js, yüksek performans, ölçeklenebilirlik ve geniş bir NPM ekosistemi sunarak MERN stack'in önemli bir parçasıdır. Olay güdümlü mimarisi, gerçek zamanlı uygulamalar için idealdir. Basit Twitch-benzeri API örneği ile gösterildiği gibi, Node.js kullanarak JavaScript ile güçlü ve verimli sunucu tarafı uygulamalar geliştirebilir, stack boyunca tutarlılık ve geliştirme kolaylığı sağlayabilirsiniz.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="socketio-ile-nodejs-ve-express-uygulamasını-entegre-etme"><a class="header" href="#socketio-ile-nodejs-ve-express-uygulamasını-entegre-etme">Socket.IO ile Node.js ve Express Uygulamasını Entegre Etme</a></h1>
+<h2 id="giriş-2"><a class="header" href="#giriş-2">Giriş</a></h2>
+<p>Modern web uygulamalarında, istemci ve sunucu arasındaki gerçek zamanlı iletişim, canlı sohbet, bildirimler ve canlı güncellemeler gibi işlevler için hayati önem taşır. Socket.IO, istemci ve sunucu arasında gerçek zamanlı, çift yönlü iletişimi sağlayan güçlü bir kütüphanedir. Bu eğitim, Socket.IO'nun Node.js ve Express uygulaması ile entegrasyonunu detaylandıracak, kritik özellikleri ve dikkat edilmesi gereken noktaları ele alacaktır.</p>
+<h2 id="gereksinimler-1"><a class="header" href="#gereksinimler-1">Gereksinimler</a></h2>
+<p>İlerlemeden önce, aşağıdakilere sahip olduğunuzdan emin olun:</p>
+<ul>
+<li>Node.js yüklü</li>
+<li>JavaScript, Node.js ve Express hakkında temel bilgi</li>
+<li>Node.js ve Express ile çalışan bir ortam</li>
+</ul>
+<h2 id="projeyi-ayarlama"><a class="header" href="#projeyi-ayarlama">Projeyi Ayarlama</a></h2>
+<ol>
+<li>
+<p><strong>Projeyi Başlatma</strong>
+Projeniz için yeni bir dizin oluşturun ve <code>npm</code> ile başlatın:</p>
+<pre><code class="language-bash">mkdir socketio-app
+cd socketio-app
+npm init -y
+</code></pre>
+</li>
+<li>
+<p><strong>Bağımlılıkları Yükleme</strong>
+Gerekli paketleri yükleyin, Express ve Socket.IO dahil:</p>
+<pre><code class="language-bash">npm install express socket.io
+</code></pre>
+</li>
+</ol>
+<h2 id="sunucu-tarafı-uygulaması"><a class="header" href="#sunucu-tarafı-uygulaması">Sunucu Tarafı Uygulaması</a></h2>
+<ol>
+<li>
+<p><strong>Sunucuyu Oluşturma</strong>
+<code>server.js</code> adında bir dosya oluşturun ve temel bir Express sunucusu kurun:</p>
+<pre><code class="language-javascript">const express = require('express');
+const http = require('http');
+const socketIo = require('socket.io');
+
+const app = express();
+const server = http.createServer(app);
+const io = socketIo(server);
+
+const PORT = process.env.PORT || 3000;
+
+server.listen(PORT, () =&gt; {
+  console.log(`Server is running on port ${PORT}`);
+});
+</code></pre>
+</li>
+<li>
+<p><strong>Socket.IO'yu Entegre Etme</strong>
+Socket.IO bağlantılarını yönetmek için aşağıdaki kodu ekleyin:</p>
+<pre><code class="language-javascript">io.on('connection', (socket) =&gt; {
+  console.log('A user connected');
+
+  // Gelen mesajları işle
+  socket.on('message', (msg) =&gt; {
+    console.log('Message received: ', msg);
+    // Mesajı tüm istemcilere yayınla
+    io.emit('message', msg);
+  });
+
+  // Bağlantı kesildiğinde işle
+  socket.on('disconnect', () =&gt; {
+    console.log('User disconnected');
+  });
+});
+</code></pre>
+</li>
+</ol>
+<h2 id="İstemci-tarafı-uygulaması"><a class="header" href="#İstemci-tarafı-uygulaması">İstemci Tarafı Uygulaması</a></h2>
+<ol>
+<li>
+<p><strong>İstemci Tarafı Dosyalarını Ayarlama</strong>
+Proje dizininde <code>index.html</code> adında bir dosya oluşturun ve aşağıdaki içeriği ekleyin:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Socket.IO Chat&lt;/title&gt;
+  &lt;script src="/socket.io/socket.io.js"&gt;&lt;/script&gt;
+  &lt;script&gt;
+    document.addEventListener('DOMContentLoaded', () =&gt; {
+      const socket = io();
+
+      socket.on('message', (msg) =&gt; {
+        const messageElement = document.createElement('div');
+        messageElement.textContent = msg;
+        document.body.appendChild(messageElement);
+      });
+
+      document.getElementById('send').addEventListener('click', () =&gt; {
+        const msg = document.getElementById('message').value;
+        socket.emit('message', msg);
+        document.getElementById('message').value = '';
+      });
+    });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;input type="text" id="message" placeholder="Type a message..."&gt;
+  &lt;button id="send"&gt;Send&lt;/button&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</li>
+<li>
+<p><strong>Statik Dosyaları Sunma</strong>
+<code>server.js</code> dosyasını <code>index.html</code> dosyasını sunacak şekilde değiştirin:</p>
+<pre><code class="language-javascript">app.get('/', (req, res) =&gt; {
+  res.sendFile(__dirname + '/index.html');
+});
+</code></pre>
+</li>
+</ol>
+<h2 id="socketionun-temel-Özellikleri"><a class="header" href="#socketionun-temel-Özellikleri">Socket.IO'nun Temel Özellikleri</a></h2>
+<ol>
+<li>
+<p><strong>Gerçek Zamanlı İletişim</strong>
+Socket.IO, istemci ve sunucu arasında anlık veri transferine olanak tanır. Bu, sohbet sistemleri gibi zamanında mesaj iletiminin önemli olduğu uygulamalar için kritik öneme sahiptir.</p>
+</li>
+<li>
+<p><strong>Çift Yönlü İletişim</strong>
+Geleneksel HTTP isteklerinin aksine, Socket.IO açık bir bağlantı tutar ve istemcinin bir istek başlatmasına gerek kalmadan sunucunun güncellemeleri istemciye iletmesini sağlar.</p>
+</li>
+<li>
+<p><strong>Otomatik Yeniden Bağlanma</strong>
+Socket.IO, bağlantı kesilmelerini algılayıp yeniden bağlanmaya çalışan yerleşik mekanizmalara sahiptir. Bu, kararsız ağ koşullarında bile bağlantının güvenilirliğini sağlar.</p>
+</li>
+<li>
+<p><strong>Oda Fonksiyonu</strong>
+Socket.IO, soketlerin gruplandırılmasını sağlayan "odalar" kavramını destekler. Bu, birden fazla kanal veya grup yönetimi gereken uygulamalarda özellikle kullanışlıdır, örneğin farklı sohbet odaları.</p>
+<pre><code class="language-javascript">io.on('connection', (socket) =&gt; {
+  console.log('A user connected');
+
+  // Bir odaya katıl
+  socket.on('joinRoom', (room) =&gt; {
+    socket.join(room);
+    console.log(`User joined room: ${room}`);
+  });
+
+  // Belirli bir odaya mesaj gönder
+  socket.on('message', (msg, room) =&gt; {
+    io.to(room).emit('message', msg);
+  });
+
+  // Bağlantı kesildiğinde işle
+  socket.on('disconnect', () =&gt; {
+    console.log('User disconnected');
+  });
+});
+</code></pre>
+</li>
+</ol>
+<h2 id="sonuç-6"><a class="header" href="#sonuç-6">Sonuç</a></h2>
+<p>Socket.IO'nun Node.js ve Express uygulaması ile entegrasyonu, uygulamanızın işlevselliğini ve kullanıcı deneyimini artıran sağlam gerçek zamanlı iletişim sağlar. Bu eğitim, Socket.IO'nun temel kurulumunu ve anahtar özelliklerini kapsayarak, gerçek zamanlı uygulamalar geliştirmek için bir temel sunmuştur.</p>
+<p>Daha fazla okuma ve ileri düzey özellikler için <a href="https://socket.io/docs/">Socket.IO resmi belgelerine</a> başvurun.</p>
+<h2 id="referanslar"><a class="header" href="#referanslar">Referanslar</a></h2>
+<ul>
+<li><a href="https://socket.io/docs/">Socket.IO Belgeleri</a></li>
+<li><a href="https://nodejs.org/">Node.js</a></li>
+<li><a href="https://expressjs.com/">Express.js</a></li>
+</ul>
+<p>Bu eğitimi takip ederek, Socket.IO, Node.js ve Express kullanarak çalışan bir gerçek zamanlı sohbet uygulamasına sahip olmalısınız. Bu teknolojilerin entegrasyonu, anlık, çift yönlü iletişim gerektiren modern web uygulamalarının geliştirilmesi için gereklidir.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mern-stack-kullanmanın-avantajlarına-dair-kapsamlı-bir-eğitim"><a class="header" href="#mern-stack-kullanmanın-avantajlarına-dair-kapsamlı-bir-eğitim">MERN Stack Kullanmanın Avantajlarına Dair Kapsamlı Bir Eğitim</a></h1>
+<p>MongoDB, Express.js, React ve Node.js'den oluşan MERN stack, sağlam ve ölçeklenebilir web uygulamaları oluşturmak için güçlü bir teknoloji kombinasyonudur. Bu eğitim, MERN stack'in kullanım avantajlarını, bileşenlerini, faydalarını ve onu destekleyen ekosistemi incelemektedir.</p>
+<h2 id="react-ile-frontend-geliştirme"><a class="header" href="#react-ile-frontend-geliştirme">React ile Frontend Geliştirme</a></h2>
+<p>React, özellikle tek sayfa uygulamalarda, reaktivite ve performansın kritik olduğu kullanıcı arayüzleri oluşturmak için popüler bir JavaScript kütüphanesidir. MERN stack içinde React kullanmanın başlıca nedenlerinden biri, yeniden kullanılabilirlik ve sürdürülebilirlik sağlayan bileşen tabanlı mimarisidir. Geliştiriciler, kendi durumlarını yöneten kapsüllemeli bileşenler oluşturabilirler, bu da modüler ve düzenli bir kod tabanı sağlar.</p>
+<p>React’in sanal DOM’u, verimli güncellemeler ve sorunsuz bir kullanıcı deneyimi sağlayarak render işlemlerini optimize eder. Ayrıca, Redux gibi durum yönetimi ve React Router gibi navigasyon için kullanılan geniş React kütüphaneleri ve araçları ekosistemi, yeteneklerini daha da artırır. React’in popülaritesi, bol miktarda kaynak, eğitim ve topluluk desteği sunar, bu da geliştirme zorluklarına çözüm bulmayı kolaylaştırır.</p>
+<h2 id="nodejs-ve-express-ile-backend-geliştirme"><a class="header" href="#nodejs-ve-express-ile-backend-geliştirme">Node.js ve Express ile Backend Geliştirme</a></h2>
+<p>Node.js, geliştiricilerin JavaScript’i sunucu tarafında çalıştırmalarına olanak tanıyan bir çalışma ortamıdır. Bu, stack boyunca geliştirme dilinin birleştirilmesini sağlar ve öğrenme eğrisini azaltır. Node.js, V8 JavaScript motoru üzerine kuruludur ve bu da onu hızlı ve verimli kılar, özellikle I/O yoğun işlemler için.</p>
+<p>Express.js, Node.js için minimal bir web framework'üdür ve web uygulamaları ve API'ler oluşturmak için sağlam özellikler sunar. Routing, middleware entegrasyonu ve istek yönetimini basitleştirir. Express’in esnekliği, geliştiricilerin uygulamalarını ihtiyaçlarına göre yapılandırmalarına olanak tanır ve hem küçük hem de büyük ölçekli uygulamalar için uygundur.</p>
+<p>Node.js ve Express.js, npm (Node Package Manager) aracılığıyla sunulan geniş bir middleware ve modül ekosistemine sahiptir. Bu geniş paket kütüphanesi, kimlik doğrulama, giriş doğrulama ve dosya işlemleri gibi çeşitli işlevleri hızla uygulamayı sağlar, tekerleği yeniden icat etmeye gerek kalmadan.</p>
+<h2 id="mongodb-ile-veritabanı-entegrasyonu"><a class="header" href="#mongodb-ile-veritabanı-entegrasyonu">MongoDB ile Veritabanı Entegrasyonu</a></h2>
+<p>MongoDB, JSON benzeri esnek bir formatta (BSON) veri saklayan bir NoSQL veritabanıdır. Bu esneklik, uygulama gereksinimleri değiştikçe veritabanının evrimleşmesini ve ölçeklenmesini kolaylaştırır. MongoDB’nin döküman odaklı yapısı, JavaScript ve JSON ile iyi uyum sağlar, Node.js ve Express ile kesintisiz entegrasyon sağlar.</p>
+<p>MongoDB’nin en önemli avantajlarından biri ölçeklenebilirliğidir. Sharding aracılığıyla yatay ölçeklemeyi destekler ve verilerin birden fazla sunucuya dağıtılmasına olanak tanır. Bu özellik, uygulamanın artan yükü ve büyüyen veri hacimlerini performanstan ödün vermeden yönetmesini sağlar.</p>
+<p>MongoDB ayrıca güçlü sorgulama ve indeksleme yetenekleri sunar, verilerin verimli bir şekilde alınmasını ve işlenmesini sağlar. Aggregation framework'ü, karmaşık veri dönüşümleri ve analitik işlemleri destekler, bu da onu geniş bir uygulama yelpazesi için uygun hale getirir.</p>
+<h2 id="socketio-ile-gerçek-zamanlı-İletişim"><a class="header" href="#socketio-ile-gerçek-zamanlı-İletişim">Socket.io ile Gerçek Zamanlı İletişim</a></h2>
+<p>Sohbet uygulamaları veya canlı bildirimler gibi gerçek zamanlı iletişim gerektiren uygulamalar için Socket.io, MERN stack'e değerli bir eklentidir. Socket.io, sunucu ve istemciler arasında çift yönlü iletişim sağlar, anında güncellemeler ve etkileşimler gerçekleştirir.</p>
+<p>Socket.io'nun MERN stack ile entegrasyonu, Node.js ve Express'i sunucu tarafı uygulamalarında kullanarak oldukça basittir. Bu kombinasyon, gerçek zamanlı işlevlerin sorunsuz bir şekilde uygulamaya dahil edilmesini sağlar, kullanıcı etkileşimini ve deneyimini artırır.</p>
+<h2 id="güçlü-topluluk-ve-ekosistem"><a class="header" href="#güçlü-topluluk-ve-ekosistem">Güçlü Topluluk ve Ekosistem</a></h2>
+<p>MERN stack kullanmanın en önemli avantajlarından biri, bileşenlerini çevreleyen güçlü topluluk desteği ve geniş ekosistemdir. React, Node.js, Express ve MongoDB'nin hepsinin aktif toplulukları vardır ve bu da sürekli geliştirme, iyileştirme ve destek sağlar. Bu canlı ekosistem şunları sağlar:</p>
+<ul>
+<li><strong>Bol Kaynaklar</strong>: Eğitimler, dokümantasyon, forumlar ve Stack Overflow tartışmaları kolayca bulunabilir, bu da çözümler ve en iyi uygulamaları bulmayı kolaylaştırır.</li>
+<li><strong>Düzenli Güncellemeler</strong>: Sürekli geliştirme, teknolojilerin en son özellikler, güvenlik yamaları ve performans iyileştirmeleri ile güncel kalmasını sağlar.</li>
+<li><strong>Zengin Ekosistem</strong>: MERN stack uygulamalarının işlevselliğini genişletmek için geniş bir kütüphane, araç ve üçüncü taraf paketi mevcuttur. Bu ekosistem, yaygın gereksinimler için önceden oluşturulmuş çözümler sunarak geliştirme süresini ve çabasını azaltır.</li>
+</ul>
+<h2 id="maliyet-etkinliği-ve-ekip-verimliliği"><a class="header" href="#maliyet-etkinliği-ve-ekip-verimliliği">Maliyet Etkinliği ve Ekip Verimliliği</a></h2>
+<p>MERN stack, özellikle küçük ve orta ölçekli uygulamalar için maliyet etkinliği ve ekip verimliliği sağlar. Full-stack JavaScript kullanarak, geliştiriciler hem frontend hem de backend üzerinde çalışabilir, bu da uzmanlaşmış rollere olan ihtiyacı azaltır. Bu çok yönlülük, küçük bir full-stack geliştirici ekibinin tüm geliştirme sürecini, veritabanı yönetiminden kullanıcı arayüzü tasarımına kadar yönetebileceği anlamına gelir.</p>
+<p>Bu yaklaşım, ekip içi iletişimi ve işbirliğini hızlandırır, daha hızlı geliştirme döngülerine ve daha uyumlu bir kod tabanına yol açar. Ayrıca, frontend ve backend arasında doğrulama mantığı ve veri modelleri gibi kod paylaşımı yeteneği, geliştirme verimliliğini daha da artırır.</p>
+<h1 id="sonuç-7"><a class="header" href="#sonuç-7">Sonuç</a></h1>
+<p>MERN stack, modern web uygulamaları oluşturmak için kapsamlı bir çözüm sunar ve MongoDB, Express.js, React ve Node.js'nin güçlü yönlerini birleştirir. Birleşik JavaScript ortamı, ölçeklenebilirliği, zengin ekosistemi ve güçlü topluluk desteği, onu geliştiriciler için çekici bir seçenek haline getirir. MERN stack'in avantajlarından yararlanarak, geliştirme ekipleri sağlam, ölçeklenebilir ve sürdürülebilir uygulamaları verimli bir şekilde oluşturabilirler.</p>
+<p>Bir sonraki modülde, bir MERN stack uygulaması oluşturmanın pratik yönlerine dalacağız, geliştirme ortamını kurarak ve basit bir uygulama oluşturarak başlayacağız.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="creating-express-server"><a class="header" href="#creating-express-server">Creating Express Server</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mern-uygulamaları"><a class="header" href="#mern-uygulamaları">MERN Uygulamaları</a></h1>
+<p>Tam teşekküllü bir MERN (MongoDB, Express.js, React, Node.js) uygulaması geliştirmek için, geliştirme ortamımızı doğru bir şekilde kurmamız gerekmektedir. Bu, birkaç aracı kurmayı ve bunların doğru yapılandırıldığından emin olmayı içerir. Bu rehber, profesyonel yazılım geliştirmede beklenen titizlik ve standartları yansıtarak, gerekli adımları detaylı ve doğru bir şekilde sunacaktır.</p>
+<h2 id="adım-1-nodejs-kurulumu"><a class="header" href="#adım-1-nodejs-kurulumu">Adım 1: Node.js Kurulumu</a></h2>
+<p>Node.js, hem sunucu tarafını (Node.js/Express) hem de istemci tarafını (React) geliştirmek için gereklidir. Node.js'i işletim sisteminize kurmak için şu adımları izleyin:</p>
+<ol>
+<li>
+<p><strong>Node.js Web Sitesine Erişim:</strong>
+Web tarayıcınızı açın ve <a href="https://nodejs.org">nodejs.org</a> adresindeki resmi Node.js web sitesine gidin.</p>
+</li>
+<li>
+<p><strong>Uygun Yükleyiciyi İndirin:</strong></p>
+<ul>
+<li><strong>Windows:</strong> Windows yükleyicisini indirin.</li>
+<li><strong>macOS:</strong> macOS yükleyicisini indirin.</li>
+<li><strong>Linux:</strong> Linux dağıtımınıza uygun yükleyiciyi indirin.</li>
+</ul>
+</li>
+<li>
+<p><strong>Node.js'i Kurun:</strong></p>
+<ul>
+<li><strong>Windows:</strong> İndirilen yükleyiciyi çalıştırın ve kurulum sihirbazını izleyin. Bu süreç genellikle birkaç kez "Next" tıklayarak varsayılan ayarları kabul etmeyi içerir.</li>
+<li><strong>macOS:</strong> İndirilen <code>.pkg</code> dosyasını açın ve ekrandaki talimatları izleyin.</li>
+<li><strong>Linux:</strong> Dağıtımınıza özel talimatları izleyin. Örneğin, Ubuntu'da şu komutları kullanabilirsiniz:
+<pre><code class="language-bash">curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+sudo apt-get install -y nodejs
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Kurulumu Doğrulama:</strong>
+Bir terminal (Command Prompt, PowerShell veya Terminal, işletim sisteminize bağlı olarak) açın ve Node.js ve npm (Node Package Manager) sürümlerini kontrol etmek için şu komutları çalıştırın:</p>
+<pre><code class="language-bash">node --version
+npm --version
+</code></pre>
+<p>Node.js ve npm sürüm numaralarını görmelisiniz. Bu, Node.js ve npm'in doğru bir şekilde kurulduğunu doğrular.</p>
+</li>
+</ol>
+<h2 id="adım-2-bir-metin-editörü-veya-ide-kurma"><a class="header" href="#adım-2-bir-metin-editörü-veya-ide-kurma">Adım 2: Bir Metin Editörü veya IDE Kurma</a></h2>
+<p>Verimli kodlama için uygun bir metin editörü veya Entegre Geliştirme Ortamı (IDE) seçmek çok önemlidir. Bazı popüler seçenekler şunlardır:</p>
+<ul>
+<li><strong>Visual Studio Code (VS Code):</strong> Geniş eklenti desteği ile oldukça özelleştirilebilir bir editör.</li>
+<li><strong>Atom:</strong> Güçlü bir topluluğa sahip açık kaynaklı bir editör.</li>
+<li><strong>WebStorm:</strong> JavaScript geliştirme için tasarlanmış ticari bir IDE.</li>
+</ul>
+<p>Tercih ettiğiniz editörü resmi web sitesinden indirip kurun ve tercihlerinize göre yapılandırın.</p>
+<h2 id="adım-3-git-kurulumu"><a class="header" href="#adım-3-git-kurulumu">Adım 3: Git Kurulumu</a></h2>
+<p>Git, kod tabanınızdaki değişiklikleri yönetmeye yardımcı olan bir versiyon kontrol sistemidir. Git'i kurmak için:</p>
+<ol>
+<li>
+<p><strong>Git'i İndirin:</strong></p>
+<ul>
+<li>Resmi Git web sitesine <a href="https://git-scm.com">git-scm.com</a> adresinden gidin ve işletim sisteminize uygun yükleyiciyi indirin.</li>
+</ul>
+</li>
+<li>
+<p><strong>Git'i Kurun:</strong></p>
+<ul>
+<li><strong>Windows:</strong> İndirilen yükleyiciyi çalıştırın ve kurulum talimatlarını izleyin.</li>
+<li><strong>macOS:</strong> Git'i Homebrew kullanarak kurmak için <code>brew install git</code> komutunu çalıştırın.</li>
+<li><strong>Linux:</strong> Dağıtımınızın paket yöneticisini kullanarak Git'i kurun. Örneğin, Ubuntu'da:
+<pre><code class="language-bash">sudo apt-get install git
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Kurulumu Doğrulama:</strong>
+Bir terminal açın ve şu komutu çalıştırın:</p>
+<pre><code class="language-bash">git --version
+</code></pre>
+<p>Git sürüm numarasını görmelisiniz, bu da başarılı bir kurulum olduğunu gösterir.</p>
+</li>
+</ol>
+<h2 id="adım-4-proje-dizini-oluşturma"><a class="header" href="#adım-4-proje-dizini-oluşturma">Adım 4: Proje Dizini Oluşturma</a></h2>
+<p>Proje dosyalarınızı düzenlemek için MERN uygulamanız için ayrılmış bir dizin oluşturun. Bir terminal açın ve şu komutları çalıştırarak proje dizininizi oluşturun ve bu dizine geçin:</p>
+<pre><code class="language-bash">mkdir mern-app
+cd mern-app
+</code></pre>
+<h2 id="adım-5-git-deposu-başlatma"><a class="header" href="#adım-5-git-deposu-başlatma">Adım 5: Git Deposu Başlatma</a></h2>
+<p>Proje dizininizde değişikliklerinizi izlemek için bir Git deposu başlatın:</p>
+<pre><code class="language-bash">git init
+</code></pre>
+<h2 id="adım-6-nodejs-projesini-kurma"><a class="header" href="#adım-6-nodejs-projesini-kurma">Adım 6: Node.js Projesini Kurma</a></h2>
+<p>Bir <code>package.json</code> dosyası oluşturarak yeni bir Node.js projesi başlatın. Bu dosya, projenizin bağımlılıklarını ve komutlarını yönetir. Aşağıdaki komutu çalıştırın ve ayarları tamamlamak için istemleri izleyin:</p>
+<pre><code class="language-bash">npm init -y
+</code></pre>
+<p>Bu komut, varsayılan ayarlarla bir <code>package.json</code> dosyası oluşturacaktır.</p>
+<h2 id="sonuç-8"><a class="header" href="#sonuç-8">Sonuç</a></h2>
+<p>Bu noktada, geliştirme ortamınız MERN uygulaması geliştirmek için kurulmuş ve hazır durumdadır. Node.js'i kurdunuz, bir metin editörü veya IDE kurdunuz, Git'i kurdunuz ve bir Node.js projesi başlattınız. En iyi uygulamaları takip ettiğinizden ve gelişim sırasında temiz bir proje yapısını sürdürdüğünüzden emin olun. Bir sonraki adım, Express.js ve MongoDB kullanarak backend'i kurmak ve React kullanarak frontend'i oluşturmaktır.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mern-stack-uygulaması-için-nodejs-projesi-başlatma"><a class="header" href="#mern-stack-uygulaması-için-nodejs-projesi-başlatma">MERN Stack Uygulaması için Node.js Projesi Başlatma</a></h1>
+<p>Bu derste, bir MERN (MongoDB, Express.js, React.js, Node.js) yığını uygulaması için bir Node.js projesinin nasıl başlatılacağını anlatacağız. Bu ders, JavaScript, Node.js ve komut satırı arayüzleri hakkında temel bilgiye sahip olduğunuzu varsayar. Kılavuz boyunca profesyonel ve titiz bir ton koruyacağız.</p>
+<h2 id="adım-1-proje-dizini-oluşturma"><a class="header" href="#adım-1-proje-dizini-oluşturma">Adım 1: Proje Dizini Oluşturma</a></h2>
+<p>İlk olarak, projemiz için bir dizin oluşturmamız gerekiyor. Bu dizin, Node.js projemizin tüm dosya ve klasörlerini içerecek.</p>
+<ol>
+<li>
+<p>Terminalinizi açın (Command Prompt, PowerShell veya tercihinize göre herhangi bir terminal).</p>
+</li>
+<li>
+<p>Proje dizininizi oluşturmak istediğiniz konuma gidin.</p>
+</li>
+<li>
+<p><code>twitch.tv</code> adında yeni bir dizin oluşturun:</p>
+<pre><code class="language-sh">mkdir twitch.tv
+</code></pre>
+</li>
+<li>
+<p>Yeni oluşturulan dizine gidin:</p>
+<pre><code class="language-sh">cd twitch.tv
+</code></pre>
+</li>
+</ol>
+<p>Bu noktada, dizininiz boş olacaktır. Şimdi bu dizin içinde bir Node.js projesi başlatacağız.</p>
+<h2 id="adım-2-nodejs-projesini-başlatma"><a class="header" href="#adım-2-nodejs-projesini-başlatma">Adım 2: Node.js Projesini Başlatma</a></h2>
+<p>Node.js projesini başlatmak için <code>npm init</code> komutunu kullanacağız. Bu komut, projenin bağımlılıklarını ve betiklerini yönetmek için gerekli olan <code>package.json</code> dosyasını oluşturacaktır.</p>
+<ol>
+<li>
+<p>Terminalinize aşağıdaki komutu girin:</p>
+<pre><code class="language-sh">npm init
+</code></pre>
+</li>
+<li>
+<p>Projeniz hakkında bazı bilgiler sağlamanız istenecektir. Bilgileri doldurabilir veya varsayılan değerleri kabul etmek için <code>Enter</code> tuşuna basabilirsiniz. İstenilecek bilgiler şunlardır:</p>
+<ul>
+<li>Package name: <code>twitch.tv</code></li>
+<li>Version: <code>1.0.0</code></li>
+<li>Description: ``</li>
+<li>Entry point: <code>index.js</code></li>
+<li>Test command: ``</li>
+<li>Git repository: ``</li>
+<li>Keywords: ``</li>
+<li>Author: ``</li>
+<li>License: <code>ISC</code></li>
+</ul>
+</li>
+<li>
+<p>İstemleri tamamladıktan sonra, proje dizininizde bir <code>package.json</code> dosyası oluşturulacaktır. Bu dosya şöyle görünecektir:</p>
+<pre><code class="language-json">{
+  "name": "twitch.tv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" &amp;&amp; exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
+</code></pre>
+</li>
+</ol>
+<p><code>package.json</code> dosyası, proje için önemli olan meta verileri tutar ve gerekli bağımlılıkları listeler.</p>
+<h2 id="adım-3-proje-yapısını-oluşturma"><a class="header" href="#adım-3-proje-yapısını-oluşturma">Adım 3: Proje Yapısını Oluşturma</a></h2>
+<p>Temiz ve düzenli bir proje yapısı sağlamak için, uygulamamızın sunucu ve istemci kısımları için ayrı klasörler oluşturacağız.</p>
+<ol>
+<li>
+<p><code>server</code> dizini oluşturun:</p>
+<pre><code class="language-sh">mkdir server
+</code></pre>
+</li>
+<li>
+<p><code>package.json</code> dosyasını <code>server</code> dizinine taşıyın:</p>
+<pre><code class="language-sh">mv package.json server/
+</code></pre>
+</li>
+</ol>
+<p>Şimdi proje dizininiz şöyle görünmelidir:</p>
+<pre><code>twitch.tv/
+└── server/
+    └── package.json
+</code></pre>
+<h2 id="sonuç-9"><a class="header" href="#sonuç-9">Sonuç</a></h2>
+<p>Başarıyla Node.js projemizi başlattık ve <code>server</code> dizini oluşturarak uygun şekilde yapılandırdık ve <code>package.json</code> dosyasını buraya taşıdık. Bu adımları takip ederek, bir MERN stack uygulaması oluşturmak için sağlam bir temel sağlarsınız. Geliştirmenin her aşaması, kendi dizinleri içinde ayrı ayrı yönetilebilir, bu da temiz ve sürdürülebilir bir kod tabanı sağlar.</p>
+<p>Bu dersin sonraki bölümlerinde, bağımlılıkların yüklenmesini, backend için Express.js'nin kurulmasını ve frontend için React'in yapılandırılmasını ele alacağız. Tam özellikli bir MERN stack uygulaması oluşturma yolunda titiz ve doğru bir rehber için bizi izlemeye devam edin.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mern-stack-projesi-İçin-sunucu-tarafı-bağımlılıklarını-kurma"><a class="header" href="#mern-stack-projesi-İçin-sunucu-tarafı-bağımlılıklarını-kurma">MERN Stack Projesi İçin Sunucu Tarafı Bağımlılıklarını Kurma</a></h1>
+<p>Bu rehber, bir MERN stack projesinin sunucu tarafı için gerekli bağımlılıkların nasıl kurulacağını adım adım anlatacaktır. İçerik, resmi bir dil kullanılarak hazırlanmış ve hataları ele alarak titizlikle açıklanmıştır.</p>
+<h2 id="Ön-koşullar-1"><a class="header" href="#Ön-koşullar-1">Ön Koşullar</a></h2>
+<p>Sisteminizde Node.js ve npm'nin yüklü olduğundan emin olun. Değilse, Node.js resmi web sitesinden indirip yükleyin.</p>
+<h2 id="adım-1-proje-dizininize-gitmek"><a class="header" href="#adım-1-proje-dizininize-gitmek">Adım 1: Proje Dizininize Gitmek</a></h2>
+<p>Terminalinizi açın ve projenizin <code>server</code> klasörüne gidin. Bunu yapmak için <code>cd</code> (change directory) komutunu kullanın. Örneğin:</p>
+<pre><code class="language-sh">cd path/to/your/project/server
+</code></pre>
+<h2 id="adım-2-gerekli-bağımlılıkları-kurmak"><a class="header" href="#adım-2-gerekli-bağımlılıkları-kurmak">Adım 2: Gerekli Bağımlılıkları Kurmak</a></h2>
+<p>Sunucu tarafı geliştirme için gerekli olan birkaç npm paketini kurmamız gerekiyor. <code>--save</code> bayrağı, bu bağımlılıkların <code>package.json</code> dosyasına kaydedilmesini sağlar.</p>
+<pre><code class="language-sh">npm install --save bcryptjs cors dotenv express joi jsonwebtoken mongoose nodemon socket.io uuid
+</code></pre>
+<p>İşte kurduğumuz paketlerin kısa bir açıklaması:</p>
+<ul>
+<li><strong>bcryptjs</strong>: Şifre hashing için.</li>
+<li><strong>cors</strong>: Cross-Origin Resource Sharing'i etkinleştirmek için.</li>
+<li><strong>dotenv</strong>: <code>.env</code> dosyasından çevre değişkenlerini yüklemek için.</li>
+<li><strong>express</strong>: Minimal ve esnek bir Node.js web uygulama çerçevesi.</li>
+<li><strong>joi</strong>: Şema doğrulaması için.</li>
+<li><strong>jsonwebtoken</strong>: Token tabanlı kimlik doğrulama için.</li>
+<li><strong>mongoose</strong>: MongoDB nesne modelleme için.</li>
+<li><strong>nodemon</strong>: Kod değişikliklerinde sunucuyu otomatik olarak yeniden başlatmak için.</li>
+<li><strong>socket.io</strong>: Gerçek zamanlı çift yönlü olay tabanlı iletişim sağlamak için.</li>
+<li><strong>uuid</strong>: Benzersiz kimlikler oluşturmak için.</li>
+</ul>
+<h2 id="adım-3-paket-kurulumunu-doğrulamak"><a class="header" href="#adım-3-paket-kurulumunu-doğrulamak">Adım 3: Paket Kurulumunu Doğrulamak</a></h2>
+<p>Yukarıdaki komutu çalıştırdıktan sonra, paketlerin kurulmasını bekleyin. Kurulum başarılı olduktan sonra, proje dizininizde bir <code>node_modules</code> klasörü görmelisiniz. Bu klasör, tüm kurulu paketleri içerir.</p>
+<p>Ayrıca <code>package.json</code> dosyanızı kontrol ederek tüm bağımlılıkların doğru bir şekilde listelendiğinden emin olabilirsiniz. <code>node_modules</code> klasörü eksikse, kurulum komutunu yeniden çalıştırın:</p>
+<pre><code class="language-sh">npm install
+</code></pre>
+<h2 id="adım-4-İlk-sunucu-dosyasını-ayarlamak"><a class="header" href="#adım-4-İlk-sunucu-dosyasını-ayarlamak">Adım 4: İlk Sunucu Dosyasını Ayarlamak</a></h2>
+<p><code>server</code> dizininde <code>index.js</code> adında bir dosya oluşturun. Bu dosya, sunucunuzun giriş noktası olarak hizmet edecektir.</p>
+<h2 id="adım-5-nodemonu-yapılandırmak"><a class="header" href="#adım-5-nodemonu-yapılandırmak">Adım 5: Nodemon'u Yapılandırmak</a></h2>
+<p>Kod değişikliklerinde sunucunun otomatik olarak yeniden başlatılmasını sağlamak için <code>package.json</code> dosyasına bir script ekleyeceğiz. Aşağıdaki scripti ekleyin:</p>
+<pre><code class="language-json">"scripts": {
+  "start": "nodemon index.js"
+}
+</code></pre>
+<p>Bu script, sunucuyu şu komutla başlatmanızı sağlar:</p>
+<pre><code class="language-sh">npm run start
+</code></pre>
+<p>Nodemon, <code>index.js</code> dosyasındaki değişiklikleri izler ve sunucuyu otomatik olarak yeniden başlatır.</p>
+<h2 id="adım-6-İlk-sunucu-kurulumu"><a class="header" href="#adım-6-İlk-sunucu-kurulumu">Adım 6: İlk Sunucu Kurulumu</a></h2>
+<p><code>index.js</code> dosyasını açın ve aşağıdaki temel sunucu kurulum kodunu ekleyin:</p>
+<pre><code class="language-javascript">const express = require('express');
+const cors = require('cors');
+const dotenv = require('dotenv');
+const mongoose = require('mongoose');
+const socketio = require('socket.io');
+const http = require('http');
+
+dotenv.config();
+
+const app = express();
+const server = http.createServer(app);
+const io = socketio(server);
+
+// Middleware
+app.use(cors());
+app.use(express.json());
+
+// Temel route
+app.get('/', (req, res) =&gt; {
+  res.send('Server is running');
+});
+
+// Socket.io bağlantısı
+io.on('connection', (socket) =&gt; {
+  console.log('New WebSocket connection');
+});
+
+const PORT = process.env.PORT || 5000;
+
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then(() =&gt; {
+  server.listen(PORT, () =&gt; console.log(`Server running on port ${PORT}`));
+}).catch((error) =&gt; {
+  console.error('Database connection error:', error);
+});
+</code></pre>
+<h2 id="sonuç-10"><a class="header" href="#sonuç-10">Sonuç</a></h2>
+<p>Bu adımları izleyerek, MERN stack projenizin sunucu tarafı için gerekli bağımlılıkları ve başlangıç yapılandırmasını başarıyla kurdunuz. Artık sunucu tarafı mantığınızı geliştirerek sağlam ve ölçeklenebilir bir uygulama oluşturabilirsiniz.</p>
+<p>Bu rehberin bir sonraki bölümünde, <code>index.js</code> dosyasının işlevselliğine daha derinlemesine dalarak route'ları, middleware'leri ve ek sunucu yapılandırmalarını kuracağız.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="basit-bir-express-sunucusu-kurulumu"><a class="header" href="#basit-bir-express-sunucusu-kurulumu">Basit Bir Express Sunucusu Kurulumu</a></h1>
+<p>Bu eğitimde, en son ES module syntax kullanarak basit bir Express sunucusunun nasıl kurulacağını anlatacağız. Bu detaylı kılavuz, olası yanlışlıkları ele alacak ve tüm adımların yazılım geliştirme alanında beklenen titizlik ve standartları yansıtmasını sağlayacaktır.</p>
+<h2 id="gereksinimler-2"><a class="header" href="#gereksinimler-2">Gereksinimler</a></h2>
+<p>Başlamadan önce, bilgisayarınızda Node.js'in yüklü olduğundan emin olun. <a href="https://nodejs.org/">Node.js resmi web sitesinden</a> indirebilirsiniz. Ayrıca, JavaScript ve Node.js hakkında temel bilgiye sahip olmalısınız.</p>
+<h2 id="adım-1-projeyi-başlatma"><a class="header" href="#adım-1-projeyi-başlatma">Adım 1: Projeyi Başlatma</a></h2>
+<p>Öncelikle, projeniz için yeni bir dizin oluşturun ve içine gidin. Ardından, yeni bir Node.js projesi başlatın:</p>
+<pre><code class="language-bash">mkdir my-express-server
+cd my-express-server
+npm init -y
+</code></pre>
+<p>Bu, varsayılan ayarlarla bir <code>package.json</code> dosyası oluşturacaktır.</p>
+<h2 id="adım-2-es-modulesı-etkinleştirme"><a class="header" href="#adım-2-es-modulesı-etkinleştirme">Adım 2: ES Modules'ı Etkinleştirme</a></h2>
+<p>Varsayılan olarak, Node.js CommonJS syntax (<code>require</code>) kullanır. ES module syntax (<code>import</code>) kullanmak için <code>package.json</code> dosyasını değiştirmemiz gerekiyor:</p>
+<pre><code class="language-json">{
+  "type": "module",
+  "dependencies": {
+    // bağımlılıklarınız burada
+  }
+}
+</code></pre>
+<p><code>"type": "module"</code> eklemek, <code>require</code> yerine <code>import</code> ifadelerini kullanmamıza olanak tanır.</p>
+<h2 id="adım-3-bağımlılıkları-yükleme"><a class="header" href="#adım-3-bağımlılıkları-yükleme">Adım 3: Bağımlılıkları Yükleme</a></h2>
+<p>Express sunucumuz için birkaç paket gerekecek:</p>
+<ul>
+<li><code>express</code>: Node.js için bir web framework.</li>
+<li><code>cors</code>: Cross-Origin Resource Sharing'i (CORS) ele almak için bir middleware.</li>
+<li><code>dotenv</code>: <code>.env</code> dosyasından ortam değişkenlerini yüklemek için bir modül.</li>
+</ul>
+<p>Bu paketleri npm kullanarak yükleyin:</p>
+<pre><code class="language-bash">npm install express cors dotenv
+</code></pre>
+<h2 id="adım-4-env-dosyasını-oluşturma"><a class="header" href="#adım-4-env-dosyasını-oluşturma">Adım 4: .env Dosyasını Oluşturma</a></h2>
+<p>Projenizin kök dizininde ortam değişkenlerini depolamak için bir <code>.env</code> dosyası oluşturun:</p>
+<pre><code class="language-bash">touch .env
+</code></pre>
+<p><code>.env</code> dosyasına şu içeriği ekleyin:</p>
+<pre><code class="language-env">API_PORT=5002
+</code></pre>
+<h2 id="adım-5-sunucuyu-kurma"><a class="header" href="#adım-5-sunucuyu-kurma">Adım 5: Sunucuyu Kurma</a></h2>
+<p><code>server.js</code> adında yeni bir dosya oluşturun ve Express sunucunuzun temel yapısını ayarlayın:</p>
+<pre><code class="language-javascript">import express from 'express';
+import http from 'http';
+import cors from 'cors';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+const app = express();
+const port = process.env.API_PORT || 3000;
+
+app.use(express.json());
+app.use(cors());
+
+app.get('/', (req, res) =&gt; {
+  res.send('Hello, here is your server');
+});
+
+const server = http.createServer(app);
+
+server.listen(port, () =&gt; {
+  console.log(`Server is listening on port ${port}`);
+});
+</code></pre>
+<h3 id="açıklama"><a class="header" href="#açıklama">Açıklama</a></h3>
+<ol>
+<li><strong>Import İfadeleri</strong>: Gerekli modülleri (<code>express</code>, <code>http</code>, <code>cors</code>, <code>dotenv</code>) ES module syntax kullanarak import ediyoruz.</li>
+<li><strong>Ortam Değişkenleri</strong>: Ortam değişkenlerini <code>dotenv</code> kullanarak yapılandırıyoruz.</li>
+<li><strong>Middleware</strong>:
+<ul>
+<li><code>express.json()</code> gelen JSON isteklerini ayrıştırmak için.</li>
+<li><code>cors()</code> CORS'u etkinleştirmek için.</li>
+</ul>
+</li>
+<li><strong>Temel Route</strong>: Basit bir GET route ayarlıyoruz ve bir mesajla yanıt veriyoruz.</li>
+<li><strong>Sunucu Başlatma</strong>: HTTP sunucusu oluşturuyoruz ve belirtilen portta dinlemesini sağlıyoruz.</li>
+</ol>
+<h2 id="adım-6-başlatma-komutunu-ekleme"><a class="header" href="#adım-6-başlatma-komutunu-ekleme">Adım 6: Başlatma Komutunu Ekleme</a></h2>
+<p>Sunucunun değişiklikleri algılayarak otomatik olarak yeniden başlatılmasını sağlayan <code>nodemon</code> kullanarak <code>package.json</code> dosyasını güncelleyin:</p>
+<pre><code class="language-json">{
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "type": "module"
+}
+</code></pre>
+<p><code>nodemon</code>'ı bir geliştirme bağımlılığı olarak yükleyin:</p>
+<pre><code class="language-bash">npm install --save-dev nodemon
+</code></pre>
+<h2 id="adım-7-sunucuyu-Çalıştırma"><a class="header" href="#adım-7-sunucuyu-Çalıştırma">Adım 7: Sunucuyu Çalıştırma</a></h2>
+<p>Sunucuyu şu komutla başlatın:</p>
+<pre><code class="language-bash">npm start
+</code></pre>
+<p>Terminalinizde <code>Server is listening on port 5002</code> mesajını görmelisiniz. Tarayıcınızı açın ve <code>http://localhost:5002</code> adresine giderek <code>Hello, here is your server</code> yanıtını görün.</p>
+<h2 id="sonuç-11"><a class="header" href="#sonuç-11">Sonuç</a></h2>
+<p>Bu eğitimde, ES modules kullanarak basit bir Express sunucusu kurduk, CORS'u ele aldık ve ortam değişkenlerini yapılandırdık. Bu yapı, daha karmaşık uygulamalar için bir temel oluşturur. Serinin bir sonraki bölümünde, projemizi route'lar ve controller'lar içerecek şekilde yapılandıracağız.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="authentification-routes"><a class="header" href="#authentification-routes">Authentification Routes</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="kimlik-doğrulama-yolları-oluşturm"><a class="header" href="#kimlik-doğrulama-yolları-oluşturm">Kimlik Doğrulama Yolları Oluşturm</a></h1>
+<p>Bu eğitimde, sunucu tarafında kimlik doğrulamayı yapılandıracağız ve MongoDB veritabanı ile bağlantı kuracağız. Burada belirtilen adımlar, yazılım geliştirme konusundaki en iyi uygulamalara uygun olarak kesin ve doğru bir şekilde hazırlanmıştır.</p>
+<h2 id="klasör-yapısı-ve-kurulum"><a class="header" href="#klasör-yapısı-ve-kurulum">Klasör Yapısı ve Kurulum</a></h2>
+<ol>
+<li>
+<p><strong>Source Dizini Oluşturun</strong>:</p>
+<ul>
+<li><code>server</code> klasörünüzde, <code>src</code> adlı yeni bir dizin oluşturun.</li>
+<li><code>src</code> klasörü içinde <code>routes</code> adlı bir başka dizin oluşturun.</li>
+</ul>
+<p>Bu yapı, ölçeklenebilir gerçek dünya uygulamaları için temiz ve düzenli bir kod tabanı tutmanıza yardımcı olur.</p>
+</li>
+<li>
+<p><strong>Yönlendirmeleri Ayrı Bir Dosyada Tanımlayın</strong>:</p>
+<ul>
+<li><code>routes</code> klasöründe <code>routes.js</code> adında bir dosya oluşturun.</li>
+</ul>
+</li>
+</ol>
+<h2 id="yönlendirmeleri-yazma"><a class="header" href="#yönlendirmeleri-yazma">Yönlendirmeleri Yazma</a></h2>
+<ol start="3">
+<li>
+<p><strong>Express'i İçe Aktarın</strong>:</p>
+<pre><code class="language-javascript">import express from 'express';
+</code></pre>
+</li>
+<li>
+<p><strong>Router'ı Başlatın</strong>:</p>
+<pre><code class="language-javascript">const router = express.Router();
+</code></pre>
+</li>
+<li>
+<p><strong>Register ve Login için GET Yönlendirmelerini Tanımlayın</strong>:</p>
+<ul>
+<li>Yönlendirmeleri tanımlamak için aşağıdaki kodu ekleyin:
+<pre><code class="language-javascript">// Register route
+router.get('/register', (req, res) =&gt; {
+    res.send('This is the register route.');
+});
+
+// Login route
+router.get('/login', (req, res) =&gt; {
+    res.send('This is the login route.');
+});
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Router'ı Dışa Aktarın</strong>:</p>
+<pre><code class="language-javascript">export default router;
+</code></pre>
+</li>
+</ol>
+<h2 id="yönlendirmeleri-ana-sunucu-dosyasına-entegre-etme"><a class="header" href="#yönlendirmeleri-ana-sunucu-dosyasına-entegre-etme">Yönlendirmeleri Ana Sunucu Dosyasına Entegre Etme</a></h2>
+<ol start="7">
+<li>
+<p><strong>index.js'de Yönlendirmeleri İçe Aktarın</strong>:</p>
+<ul>
+<li><code>index.js</code> dosyasını açın ve yönlendirmeleri içe aktarın:
+<pre><code class="language-javascript">import routes from './src/routes/routes.js';
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Yönlendirmeleri Express Uygulamasına Kaydedin</strong>:</p>
+<ul>
+<li>İçe aktarılan yönlendirmeleri kullanmak için aşağıdaki kodu ekleyin:
+<pre><code class="language-javascript">app.use('/api/auth', routes);
+</code></pre>
+</li>
+</ul>
+<p>Bu, yönlendirmelerin <code>/api/auth</code> uç noktasında erişilebilir olmasını sağlar.</p>
+</li>
+</ol>
+<h2 id="yönlendirmeleri-test-etme"><a class="header" href="#yönlendirmeleri-test-etme">Yönlendirmeleri Test Etme</a></h2>
+<ol start="9">
+<li>
+<p><strong>Sunucuyu Başlatın</strong>:</p>
+<ul>
+<li>Sunucunuzun <code>nodemon</code> veya benzeri bir araç ile çalıştığından emin olun:
+<pre><code class="language-bash">nodemon index.js
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Bir Tarayıcı veya API İstemcisi Kullanarak Yönlendirmeleri Doğrulayın</strong>:</p>
+<ul>
+<li>Tarayıcınızı açın ve şu adreslere gidin:
+<ul>
+<li><code>http://localhost:5002/api/auth/register</code> "This is the register route." mesajını görmek için.</li>
+<li><code>http://localhost:5002/api/auth/login</code> "This is the login route." mesajını görmek için.</li>
+</ul>
+</li>
+</ul>
+<p>Tarayıcıda varsayılan HTTP yöntemi GET olduğundan, POST isteklerini test etmek için Postman veya Insomnia gibi bir araç gereklidir.</p>
+</li>
+</ol>
+<h2 id="post-İsteklerini-İşleme"><a class="header" href="#post-İsteklerini-İşleme">POST İsteklerini İşleme</a></h2>
+<ol start="11">
+<li>
+<p><strong>Register ve Login için POST Yönlendirmelerini Tanımlayın</strong>:</p>
+<ul>
+<li><code>routes.js</code> dosyasını, POST yönlendirmelerini içerecek şekilde değiştirin:
+<pre><code class="language-javascript">// POST Register route
+router.post('/register', (req, res) =&gt; {
+    // Handle registration logic here
+    res.send('User registered successfully.');
+});
+
+// POST Login route
+router.post('/login', (req, res) =&gt; {
+    // Handle login logic here
+    res.send('User logged in successfully.');
+});
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>POST İsteklerini Bir API İstemcisi Kullanarak Test Edin</strong>:</p>
+<ul>
+<li>Postman veya Insomnia kullanarak POST isteklerini gönderin:
+<ul>
+<li><code>http://localhost:5002/api/auth/register</code></li>
+<li><code>http://localhost:5002/api/auth/login</code></li>
+</ul>
+</li>
+<li>Gerekli yük verilerini ekleyin, örneğin kayıt için kullanıcı adı, e-posta ve parola; giriş için ise e-posta ve parola.</li>
+</ul>
+</li>
+</ol>
+<h2 id="Özet"><a class="header" href="#Özet">Özet</a></h2>
+<p>Bu eğitimde, bir MERN yığın uygulamasında temel bir yönlendirme yapısının nasıl kurulacağını ele aldık. Ana adımlar arasında yönlendirmeler için bir dizin yapısı oluşturma, yönlendirmeleri ayrı bir dosyada tanımlama, bu yönlendirmeleri ana sunucu dosyasına entegre etme ve hem GET hem de POST isteklerini test etme yer alıyordu. Tarayıcılar varsayılan olarak GET isteklerini kullandığından, POST isteklerini test etmek için Postman veya Insomnia gibi araçları kullanmak önemlidir. Bu yapı, MongoDB veritabanına bağlanma ve gerçek kimlik doğrulama mantığını uygulama gibi daha ileri geliştirmeler için sağlam bir temel sağlar.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="postman-ile-kimlik-doğrulama-yollarını-test-etme"><a class="header" href="#postman-ile-kimlik-doğrulama-yollarını-test-etme">Postman ile Kimlik Doğrulama Yollarını Test Etme</a></h1>
+<p>Bu rehberde, bir MERN (MongoDB, Express, React, Node.js) uygulamasının tüm yöntemlerini Postman kullanarak nasıl test edeceğimizi ele alacağız. Postman, geliştiricilerin HTTP isteklerini simüle etmelerini ve yanıtları incelemelerini sağlayan güçlü bir API test aracıdır ve web tarayıcısı kullanmadan çalışır.</p>
+<h2 id="postman-İndirme-ve-kurulum"><a class="header" href="#postman-İndirme-ve-kurulum">Postman İndirme ve Kurulum</a></h2>
+<p>Başlamak için, Postman'i resmi web sitesinden indirin ve kurun:</p>
+<ol>
+<li><a href="https://www.postman.com/">Postman'in resmi web sitesi</a> adresine gidin.</li>
+<li>İşletim sisteminiz için uygun sürümü indirin.</li>
+<li>Platformunuz için kurulum talimatlarını izleyin.</li>
+</ol>
+<p>Kurulum tamamlandıktan sonra Postman'i açın. Arayüz, istekler oluşturmak ve yönetmek için çeşitli araçlar ve seçenekler sunacaktır.</p>
+<h2 id="postman-kurulumu"><a class="header" href="#postman-kurulumu">Postman Kurulumu</a></h2>
+<p>API'nizi test etmeye başlamadan önce Postman'in düzenini ve özelliklerini anlamak önemlidir:</p>
+<ol>
+<li><strong>Workspaces:</strong> Postman, istekleri workspaceler içinde organize eder. Yeni bir workspace oluşturun veya mevcut birini kullanın. Workspace, ilgili istekleri ve koleksiyonları verimli bir şekilde yönetmeye yardımcı olur.</li>
+<li><strong>Collections:</strong> Koleksiyonlar, ilgili istek gruplarıdır. İsteklerinizi daha iyi yönetim için koleksiyonlar halinde düzenleyin.</li>
+</ol>
+<h2 id="api-İstekleri-oluşturma-ve-test-etme"><a class="header" href="#api-İstekleri-oluşturma-ve-test-etme">API İstekleri Oluşturma ve Test Etme</a></h2>
+<h3 id="yeni-bir-İstek-ekleme"><a class="header" href="#yeni-bir-İstek-ekleme">Yeni Bir İstek Ekleme</a></h3>
+<p>Postman'de yeni bir istek eklemek için:</p>
+<ol>
+<li>Yeni bir istek sekmesi açmak için <strong>+</strong> düğmesine tıklayın.</li>
+<li>Test etmek istediğiniz HTTP yöntemini (GET, POST, PUT, DELETE vb.) seçin.</li>
+</ol>
+<h3 id="İstek-urlsini-tanımlama"><a class="header" href="#İstek-urlsini-tanımlama">İstek URL'sini Tanımlama</a></h3>
+<p>Bu örnek için, yerel olarak 5002 portunda çalışan bir sunucumuz olduğunu ve login API endpoint'ini test etmek istediğimizi varsayalım.</p>
+<ol>
+<li>URL'yi <code>http://localhost:5002/api/login</code> olarak ayarlayın.</li>
+<li>HTTP yöntemini (örneğin, POST) seçin.</li>
+</ol>
+<h3 id="İsteği-yapılandırma"><a class="header" href="#İsteği-yapılandırma">İsteği Yapılandırma</a></h3>
+<p>Postman, isteğin çeşitli yönlerini yapılandırmanıza olanak tanır:</p>
+<ol>
+<li><strong>Headers:</strong> Gerekli header'ları ekleyin, örneğin <code>Content-Type</code> olarak <code>application/json</code> ayarlayın.</li>
+<li><strong>Body:</strong> POST istekleri için isteğin yükünü body kısmına ekleyin. <strong>raw</strong> seçeneğini seçin ve formatı JSON olarak ayarlayın.</li>
+</ol>
+<p>Bir login isteği için örnek payload:</p>
+<pre><code class="language-json">{
+  "username": "exampleUser",
+  "password": "examplePassword"
+}
+</code></pre>
+<h3 id="İsteği-gönderme"><a class="header" href="#İsteği-gönderme">İsteği Gönderme</a></h3>
+<p>İsteği yapılandırdıktan sonra:</p>
+<ol>
+<li><strong>Send</strong> düğmesine tıklayın.</li>
+<li>Sunucu tarafından döndürülen yanıtı inceleyin.</li>
+</ol>
+<h3 id="yanıtları-yönetme"><a class="header" href="#yanıtları-yönetme">Yanıtları Yönetme</a></h3>
+<p>Postman, yanıt verilerini, durum kodlarını, header'ları ve yanıt gövdesini görüntüler. Bu bilgi, API'nizin beklendiği gibi çalıştığını doğrulamak için çok önemlidir.</p>
+<h2 id="Örnek-farklı-http-yöntemlerini-test-etme"><a class="header" href="#Örnek-farklı-http-yöntemlerini-test-etme">Örnek: Farklı HTTP Yöntemlerini Test Etme</a></h2>
+<h3 id="get-İsteği"><a class="header" href="#get-İsteği">GET İsteği</a></h3>
+<ol>
+<li>HTTP yöntemini GET olarak değiştirin.</li>
+<li>URL'yi <code>http://localhost:5002/api/login</code> olarak kullanın.</li>
+<li><strong>Send</strong> düğmesine tıklayın.</li>
+<li>Endpoint GET isteklerini desteklemiyorsa 404 Not Found gibi bir yanıt gözlemleyin.</li>
+</ol>
+<h3 id="post-İsteği"><a class="header" href="#post-İsteği">POST İsteği</a></h3>
+<ol>
+<li>HTTP yöntemini POST olarak değiştirin.</li>
+<li>URL'yi <code>http://localhost:5002/api/login</code> olarak kullanın.</li>
+<li>Gerekli isteği body kısmına ekleyin.</li>
+<li><strong>Send</strong> düğmesine tıklayın.</li>
+<li>Bir başarı mesajı veya kimlik doğrulama token'ı döndüren bir yanıt gözlemleyin.</li>
+</ol>
+<h3 id="put-ve-delete-İstekleri"><a class="header" href="#put-ve-delete-İstekleri">PUT ve DELETE İstekleri</a></h3>
+<p>PUT ve DELETE istekleri için benzer adımları izleyin, URL'yi ve isteği gerekli şekilde ayarlayın.</p>
+<h2 id="gelişmiş-postman-Özellikleri"><a class="header" href="#gelişmiş-postman-Özellikleri">Gelişmiş Postman Özellikleri</a></h2>
+<p>Postman, API testini geliştiren gelişmiş özellikler sunar:</p>
+<ol>
+<li><strong>Environment Variables:</strong> Farklı ortamları (development, testing, production) yönetmek için ortam değişkenlerini kullanın.</li>
+<li><strong>Scripts:</strong> Test iş akışlarını otomatikleştirmek için öncesi ve sonrası script'leri yazın.</li>
+<li><strong>Collections:</strong> İstekleri koleksiyonlar halinde organize edin ve bunları otomatik test paketleri olarak çalıştırın.</li>
+</ol>
+<h2 id="sonuç-12"><a class="header" href="#sonuç-12">Sonuç</a></h2>
+<p>Postman, bir MERN uygulamasında API testleri için temel bir araçtır. Bu rehberi izleyerek, çeşitli API endpoint'lerini verimli bir şekilde test edebilir ve backend logic'inin doğru çalıştığından emin olabilirsiniz. Uygulamanız büyüdükçe, sağlam bir test stratejisi sürdürmek için Postman'in gelişmiş özelliklerinden yararlanın.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="kimlik-doğrulama-kontrolörleri"><a class="header" href="#kimlik-doğrulama-kontrolörleri">Kimlik Doğrulama Kontrolörleri</a></h1>
+<h2 id="giriş-3"><a class="header" href="#giriş-3">Giriş</a></h2>
+<p>Modern web geliştirmede, temiz ve modüler bir kod tabanını korumak kritiktir. Bu eğitim, bir MERN (MongoDB, Express.js, React, Node.js) uygulamasında kimlik doğrulama yolları ve kontrolörlerini nasıl organize edeceğimizi gösterir. Kimlik doğrulama işlemlerini ayrı dosyalara ve dizinlere ayırarak, kod tabanımızın sürdürülebilir ve ölçeklenebilir kalmasını sağlarız.</p>
+<h2 id="klasör-yapısı"><a class="header" href="#klasör-yapısı">Klasör Yapısı</a></h2>
+<p>Aşağıdaki klasör yapısını oluşturacağız:</p>
+<pre><code>project-root
+│
+├── src
+│   ├── controllers
+│   │   ├── auth
+│   │   │   ├── postLogin.js
+│   │   │   └── postRegister.js
+│   │   └── controllers.js
+│   └── routes
+│       └── auth.js
+├── app.js
+└── package.json
+</code></pre>
+<h2 id="adım-adım-rehber"><a class="header" href="#adım-adım-rehber">Adım Adım Rehber</a></h2>
+<h3 id="1-controllers-klasörünü-oluşturun"><a class="header" href="#1-controllers-klasörünü-oluşturun">1. Controllers Klasörünü Oluşturun</a></h3>
+<p>Öncelikle, <code>src</code> dizini içinde bir <code>controllers</code> klasörü oluşturun. Bu klasör, tüm kontrolör mantığımızı barındıracaktır.</p>
+<h3 id="2-auth-kontrolörlerini-oluşturun"><a class="header" href="#2-auth-kontrolörlerini-oluşturun">2. Auth Kontrolörlerini Oluşturun</a></h3>
+<p><code>controllers</code> klasörü içinde bir <code>auth</code> klasörü oluşturun. Bu <code>auth</code> klasörü içinde iki dosya oluşturun: <code>postLogin.js</code> ve <code>postRegister.js</code>.</p>
+<p><strong>postLogin.js:</strong></p>
+<pre><code class="language-javascript">// src/controllers/auth/postLogin.js
+
+export const postLogin = async (req, res) =&gt; {
+    try {
+        // Authentication logic here
+        res.status(200).json({ message: "This is login route" });
+    } catch (error) {
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+};
+</code></pre>
+<p><strong>postRegister.js:</strong></p>
+<pre><code class="language-javascript">// src/controllers/auth/postRegister.js
+
+export const postRegister = async (req, res) =&gt; {
+    try {
+        // Registration logic here
+        res.status(200).json({ message: "This is register route" });
+    } catch (error) {
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+};
+</code></pre>
+<h3 id="3-kontrolörleri-birleştirin"><a class="header" href="#3-kontrolörleri-birleştirin">3. Kontrolörleri Birleştirin</a></h3>
+<p>Tüm kontrolörleri birleştirmek için <code>controllers</code> klasöründe bir <code>controllers.js</code> dosyası oluşturun.</p>
+<p><strong>controllers.js:</strong></p>
+<pre><code class="language-javascript">// src/controllers/controllers.js
+
+import { postLogin } from './auth/postLogin';
+import { postRegister } from './auth/postRegister';
+
+export { postLogin, postRegister };
+</code></pre>
+<h3 id="4-yolları-tanımlayın"><a class="header" href="#4-yolları-tanımlayın">4. Yolları Tanımlayın</a></h3>
+<p><code>src</code> klasöründe bir <code>routes</code> klasörü oluşturun. Bu klasör içinde kimlik doğrulama yolları için bir <code>auth.js</code> dosyası oluşturun.</p>
+<p><strong>auth.js:</strong></p>
+<pre><code class="language-javascript">// src/routes/auth.js
+
+import express from 'express';
+import { postLogin, postRegister } from '../controllers/controllers';
+
+const router = express.Router();
+
+router.post('/login', postLogin);
+router.post('/register', postRegister);
+
+export default router;
+</code></pre>
+<h3 id="5-yolları-uygulamaya-entegre-edin"><a class="header" href="#5-yolları-uygulamaya-entegre-edin">5. Yolları Uygulamaya Entegre Edin</a></h3>
+<p>Ana uygulama dosyanızı (örneğin, <code>app.js</code>) tanımlı yolları kullanacak şekilde değiştirin.</p>
+<p><strong>app.js:</strong></p>
+<pre><code class="language-javascript">// app.js
+
+import express from 'express';
+import authRoutes from './src/routes/auth';
+
+const app = express();
+
+app.use(express.json());
+app.use('/api/auth', authRoutes);
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () =&gt; {
+    console.log(`Server is running on port ${PORT}`);
+});
+</code></pre>
+<h2 id="uygulamanın-test-edilmesi"><a class="header" href="#uygulamanın-test-edilmesi">Uygulamanın Test Edilmesi</a></h2>
+<p>Uygulamayı doğrulamak için, Postman gibi bir araç kullanarak <code>/api/auth/login</code> ve <code>/api/auth/register</code> uç noktalarına POST istekleri gönderin.</p>
+<ul>
+<li>
+<p><strong>Login Route:</strong></p>
+<ul>
+<li>URL: <code>http://localhost:5000/api/auth/login</code></li>
+<li>Method: <code>POST</code></li>
+<li>Response: <code>{ "message": "This is login route" }</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Register Route:</strong></p>
+<ul>
+<li>URL: <code>http://localhost:5000/api/auth/register</code></li>
+<li>Method: <code>POST</code></li>
+<li>Response: <code>{ "message": "This is register route" }</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="sonuç-13"><a class="header" href="#sonuç-13">Sonuç</a></h2>
+<p>Bu eğitimi takip ederek, kimlik doğrulama mantığını ayrı dosyalara ve dizinlere ayırarak MERN uygulamanızın sürdürülebilirliğini ve ölçeklenebilirliğini artırdınız. Bu yapı en iyi uygulamalara uygun olup, temiz ve düzenli bir kod tabanı sağlar.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="validation-ara-yazılımı"><a class="header" href="#validation-ara-yazılımı">Validation ara yazılımı</a></h1>
+<h2 id="giriş-4"><a class="header" href="#giriş-4">Giriş</a></h2>
+<p>Bu eğitimde, bir MERN (MongoDB, Express, React, Node.js) uygulamasında kayıt ve giriş işlevselliğinin uygulanmasını ele alacağız. Ana odak noktası, bu işlevsellikler için sağlam rotalar oluşturmak, uygun veri doğrulamasını sağlamak ve istek ve yanıtları etkili bir şekilde yönetmek olacaktır.</p>
+<h2 id="gereksinimler-3"><a class="header" href="#gereksinimler-3">Gereksinimler</a></h2>
+<ul>
+<li>JavaScript, Node.js ve Express hakkında temel bilgi.</li>
+<li>RESTful API'ler hakkında bilgi.</li>
+<li>MongoDB ve Mongoose'a aşinalık.</li>
+</ul>
+<h2 id="projenin-kurulumu"><a class="header" href="#projenin-kurulumu">Projenin Kurulumu</a></h2>
+<ol>
+<li>
+<p><strong>Proje Başlatma:</strong></p>
+<pre><code class="language-bash">mkdir mern-auth
+cd mern-auth
+npm init -y
+</code></pre>
+</li>
+<li>
+<p><strong>Bağımlılıkların Yüklenmesi:</strong></p>
+<pre><code class="language-bash">npm install express mongoose bcryptjs jsonwebtoken body-parser
+npm install --save-dev nodemon
+</code></pre>
+</li>
+<li>
+<p><strong>Proje Yapısı:</strong></p>
+<pre><code>mern-auth/
+├── controllers/
+│   └── authController.js
+├── models/
+│   └── User.js
+├── routes/
+│   └── authRoutes.js
+├── middlewares/
+│   └── validateRequest.js
+├── server.js
+└── config/
+    └── db.js
+</code></pre>
+</li>
+</ol>
+<h2 id="adım-adım-uygulama"><a class="header" href="#adım-adım-uygulama">Adım Adım Uygulama</a></h2>
+<h3 id="1-veritabanı-yapılandırması"><a class="header" href="#1-veritabanı-yapılandırması">1. Veritabanı Yapılandırması</a></h3>
+<p>MongoDB'ye bağlanmak için <code>config/db.js</code> dosyasını oluşturun:</p>
+<pre><code class="language-javascript">const mongoose = require('mongoose');
+
+const connectDB = async () =&gt; {
+    try {
+        await mongoose.connect(process.env.MONGO_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useCreateIndex: true,
+        });
+        console.log('MongoDB Connected');
+    } catch (err) {
+        console.error(err.message);
+        process.exit(1);
+    }
+};
+
+module.exports = connectDB;
+</code></pre>
+<h3 id="2-user-modeli"><a class="header" href="#2-user-modeli">2. User Modeli</a></h3>
+<p>User şemasını tanımlamak için <code>models/User.js</code> dosyasını oluşturun:</p>
+<pre><code class="language-javascript">const mongoose = require('mongoose');
+
+const UserSchema = new mongoose.Schema({
+    username: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    password: {
+        type: String,
+        required: true,
+    },
+});
+
+module.exports = mongoose.model('User', UserSchema);
+</code></pre>
+<h3 id="3-auth-controller"><a class="header" href="#3-auth-controller">3. Auth Controller</a></h3>
+<p>Kayıt ve giriş işlemlerini yönetmek için <code>controllers/authController.js</code> dosyasını oluşturun:</p>
+<pre><code class="language-javascript">const User = require('../models/User');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+
+exports.register = async (req, res) =&gt; {
+    const { username, email, password } = req.body;
+
+    try {
+        let user = await User.findOne({ email });
+        if (user) {
+            return res.status(400).json({ msg: 'User already exists' });
+        }
+
+        user = new User({
+            username,
+            email,
+            password,
+        });
+
+        const salt = await bcrypt.genSalt(10);
+        user.password = await bcrypt.hash(password, salt);
+
+        await user.save();
+
+        const payload = {
+            user: {
+                id: user.id,
+            },
+        };
+
+        jwt.sign(
+            payload,
+            process.env.JWT_SECRET,
+            { expiresIn: 3600 },
+            (err, token) =&gt; {
+                if (err) throw err;
+                res.json({ token });
+            }
+        );
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+};
+
+exports.login = async (req, res) =&gt; {
+    const { email, password } = req.body;
+
+    try {
+        let user = await User.findOne({ email });
+        if (!user) {
+            return res.status(400).json({ msg: 'Invalid credentials' });
+        }
+
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) {
+            return res.status(400).json({ msg: 'Invalid credentials' });
+        }
+
+        const payload = {
+            user: {
+                id: user.id,
+            },
+        };
+
+        jwt.sign(
+            payload,
+            process.env.JWT_SECRET,
+            { expiresIn: 3600 },
+            (err, token) =&gt; {
+                if (err) throw err;
+                res.json({ token });
+            }
+        );
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+};
+</code></pre>
+<h3 id="4-doğrulama-middleware"><a class="header" href="#4-doğrulama-middleware">4. Doğrulama Middleware</a></h3>
+<p>İstek verilerini doğrulamak için <code>middlewares/validateRequest.js</code> dosyasını oluşturun:</p>
+<pre><code class="language-javascript">const { body, validationResult } = require('express-validator');
+
+exports.validateRegister = [
+    body('username').notEmpty().withMessage('Username is required'),
+    body('email').isEmail().withMessage('Please include a valid email'),
+    body('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters'),
+    (req, res, next) =&gt; {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+        next();
+    },
+];
+
+exports.validateLogin = [
+    body('email').isEmail().withMessage('Please include a valid email'),
+    body('password').exists().withMessage('Password is required'),
+    (req, res, next) =&gt; {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+        next();
+    },
+];
+</code></pre>
+<h3 id="5-auth-routes"><a class="header" href="#5-auth-routes">5. Auth Routes</a></h3>
+<p>Kimlik doğrulama rotalarını tanımlamak için <code>routes/authRoutes.js</code> dosyasını oluşturun:</p>
+<pre><code class="language-javascript">const express = require('express');
+const { register, login } = require('../controllers/authController');
+const { validateRegister, validateLogin } = require('../middlewares/validateRequest');
+const router = express.Router();
+
+router.post('/register', validateRegister, register);
+router.post('/login', validateLogin, login);
+
+module.exports = router;
+</code></pre>
+<h3 id="6-sunucu-kurulumu"><a class="header" href="#6-sunucu-kurulumu">6. Sunucu Kurulumu</a></h3>
+<p>Express sunucusunu kurmak için <code>server.js</code> dosyasını güncelleyin:</p>
+<pre><code class="language-javascript">const express = require('express');
+const connectDB = require('./config/db');
+const authRoutes = require('./routes/authRoutes');
+require('dotenv').config();
+
+const app = express();
+
+// Connect Database
+connectDB();
+
+// Init Middleware
+app.use(express.json());
+
+app.get('/', (req, res) =&gt; res.send('API Running'));
+
+// Define Routes
+app.use('/api/auth', authRoutes);
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () =&gt; console.log(`Server started on port ${PORT}`));
+</code></pre>
+<h2 id="postman-ile-test-etme"><a class="header" href="#postman-ile-test-etme">Postman ile Test Etme</a></h2>
+<ol>
+<li>
+<p><strong>Kullanıcı Kaydı:</strong></p>
+<ul>
+<li>URL: <code>http://localhost:5000/api/auth/register</code></li>
+<li>Method: <code>POST</code></li>
+<li>Body (JSON):
+<pre><code class="language-json">{
+    "username": "testuser",
+    "email": "test@example.com",
+    "password": "password123"
+}
+</code></pre>
+</li>
+<li>Beklenen Yanıt: <code>200 OK</code> ve bir JWT token.</li>
+</ul>
+</li>
+<li>
+<p><strong>Kullanıcı Girişi:</strong></p>
+<ul>
+<li>URL: <code>http://localhost:5000/api/auth/login</code></li>
+<li>Method: <code>POST</code></li>
+<li>Body (JSON):
+<pre><code class="language-json">{
+    "email": "test@example.com",
+    "password": "password123"
+}
+</code></pre>
+</li>
+<li>Beklenen Yanıt: <code>200 OK</code> ve bir JWT token.</li>
+</ul>
+</li>
+</ol>
+<h2 id="sonuç-14"><a class="header" href="#sonuç-14">Sonuç</a></h2>
+<p>Bu eğitimde, bir MERN uygulamasında temel bir kimlik doğrulama sisteminin uygulanmasını, kullanıcı kaydı ve giriş işlemlerini, veri doğrulamasını ve istek/yanıt yönetimini ele aldık. Bu adımları izleyerek, uygulamalarınızda daha karmaşık kimlik doğrulama ve yetkilendirme mekanizmaları oluşturmak için sağlam bir temel oluşturmuş olacaksınız.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="joi-ile-validation"><a class="header" href="#joi-ile-validation">Joi ile Validation</a></h1>
+<h2 id="giriş-5"><a class="header" href="#giriş-5">Giriş</a></h2>
+<p>Veri doğrulama, güvenli ve güvenilir uygulamalar geliştirirken önemli bir adımdır. Müşterilerden alınan verilerin beklendiği gibi olmasını sağlar ve potansiyel hataları ve güvenlik açıklarını önler. Bu eğitimde, bir Express uygulamasında istek verilerini doğrulamak için güçlü bir şema tanımlama dili ve veri doğrulayıcısı olan Joi'yi nasıl kullanacağımızı inceleyeceğiz.</p>
+<h2 id="joi-nedir"><a class="header" href="#joi-nedir">Joi Nedir?</a></h2>
+<p>Joi, JavaScript nesnelerini doğrulamak için kapsamlı bir kütüphanedir. Geliştiricilerin verileri için şemalar tanımlamalarına, gerekli yapıyı, türleri ve kısıtlamaları belirtmelerine olanak tanır. Joi, gelen verilere kurallar uygulamayı kolaylaştırır ve doğrulama başarısız olduğunda anlamlı hata mesajları sağlar.</p>
+<h2 id="ortamı-ayarlamak"><a class="header" href="#ortamı-ayarlamak">Ortamı Ayarlamak</a></h2>
+<p>Başlamadan önce Node.js ve npm'nin kurulu olduğundan emin olun. Yeni bir Express projesi oluşturabilir veya mevcut birini kullanabilirsiniz. Gerekli paketleri yükleyin:</p>
+<pre><code class="language-bash">npm install express joi express-joi-validation
+</code></pre>
+<h2 id="doğrulama-Şemalarını-oluşturmak"><a class="header" href="#doğrulama-Şemalarını-oluşturmak">Doğrulama Şemalarını Oluşturmak</a></h2>
+<p>Joi kullanarak kullanıcı kaydı ve giriş için şemalar oluşturacağız. Bu şemalar, istek verilerinde beklediğimiz alanlar için kuralları tanımlayacaktır.</p>
+<h2 id="register-Şeması"><a class="header" href="#register-Şeması">Register Şeması</a></h2>
+<pre><code class="language-javascript">const Joi = require('joi');
+
+const registerSchema = Joi.object({
+  username: Joi.string().alphanum().min(3).max(30).required(),
+  password: Joi.string().min(6).required(),
+  email: Joi.string().email().required()
+});
+
+module.exports = { registerSchema };
+</code></pre>
+<h2 id="login-Şeması"><a class="header" href="#login-Şeması">Login Şeması</a></h2>
+<pre><code class="language-javascript">const Joi = require('joi');
+
+const loginSchema = Joi.object({
+  email: Joi.string().email().required(),
+  password: Joi.string().min(6).required()
+});
+
+module.exports = { loginSchema };
+</code></pre>
+<h2 id="joiyi-express-ile-entegre-etmek"><a class="header" href="#joiyi-express-ile-entegre-etmek">Joi'yi Express ile Entegre Etmek</a></h2>
+<p>Sonraki adımda, Joi'yi gelen istekleri doğrulamak için Express uygulamamızla entegre edeceğiz. Doğrulama ara yazılımını yönetmek için <code>express-joi-validation</code> paketini kullanacağız.</p>
+<h2 id="express-ve-doğrulayıcıları-ayarlamak"><a class="header" href="#express-ve-doğrulayıcıları-ayarlamak">Express ve Doğrulayıcıları Ayarlamak</a></h2>
+<pre><code class="language-javascript">const express = require('express');
+const { createValidator } = require('express-joi-validation');
+const { registerSchema, loginSchema } = require('./schemas');
+
+const app = express();
+const validator = createValidator();
+
+app.use(express.json());
+</code></pre>
+<h2 id="doğrulama-ile-rotaları-tanımlamak"><a class="header" href="#doğrulama-ile-rotaları-tanımlamak">Doğrulama ile Rotaları Tanımlamak</a></h2>
+<p>Kullanıcı kaydı ve giriş için rotaları tanımlıyoruz ve Joi doğrulama ara yazılımını uyguluyoruz.</p>
+<pre><code class="language-javascript">const registerController = (req, res) =&gt; {
+  // Kullanıcıyı kaydetmek için özel mantık
+  res.send('User registered successfully');
+};
+
+const loginController = (req, res) =&gt; {
+  // Kullanıcıyı giriş yapmak için özel mantık
+  res.send('User logged in successfully');
+};
+
+app.post('/register', validator.body(registerSchema), registerController);
+app.post('/login', validator.body(loginSchema), loginController);
+</code></pre>
+<h2 id="doğrulamayı-test-etmek"><a class="header" href="#doğrulamayı-test-etmek">Doğrulamayı Test Etmek</a></h2>
+<p>Kurulumu doğrulamak için Postman veya curl gibi araçları kullanarak <code>/register</code> ve <code>/login</code> uç noktalarına istekler gönderebilirsiniz.</p>
+<h2 id="geçerli-İstek"><a class="header" href="#geçerli-İstek">Geçerli İstek</a></h2>
+<pre><code class="language-json">{
+  "username": "mark",
+  "email": "test@example.com",
+  "password": "password123"
+}
+</code></pre>
+<h2 id="geçersiz-İstek-eksik-alanlar"><a class="header" href="#geçersiz-İstek-eksik-alanlar">Geçersiz İstek (Eksik Alanlar)</a></h2>
+<pre><code class="language-json">{
+  "username": "mark"
+}
+</code></pre>
+<p>Yanıt:</p>
+<pre><code class="language-json">{
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "Error validating request body. \"password\" is required. \"email\" is required."
+}
+</code></pre>
+<h2 id="hata-yönetimi"><a class="header" href="#hata-yönetimi">Hata Yönetimi</a></h2>
+<p>Joi, doğrulama sorunları hakkında müşterilere bilgi vermek için kullanılabilecek ayrıntılı hata mesajları sağlar. Bu mesajları özelleştirebilir veya uygulamanızın gereksinimlerine uyacak şekilde yapılandırabilirsiniz.</p>
+<h2 id="sonuç-15"><a class="header" href="#sonuç-15">Sonuç</a></h2>
+<p>Express uygulamasında veri doğrulaması için Joi kullanmak, gelen verilerin önceden tanımlanmış kriterlere uygun olmasını sağlayarak güvenliği ve güvenilirliği artırır. Bu eğitimde, Joi'yi kurma, şemalar oluşturma, Express ile entegre etme ve doğrulama sürecini test etme adımlarını ele aldık. Sağlam bir API tasarımında uygun veri doğrulama esastır ve Joi, JavaScript geliştiricileri için güçlü ve esnek bir çözüm sunar.</p>
+<p>Bu adımları takip ederek, Express uygulamalarınızda istek verilerini etkili bir şekilde doğrulayabilir, geçersiz girdilere ve potansiyel güvenlik tehditlerine karşı koruma sağlayabilirsiniz.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>

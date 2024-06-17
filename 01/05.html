@@ -1,0 +1,369 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>React - İstemci Tarafı Kütüphanesi - Zwitch-Documentation</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../01/index.html"><strong aria-hidden="true">1.</strong> Giriş</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../01/01.html"><strong aria-hidden="true">1.1.</strong> Uygulama Önizlemesi</a></li><li class="chapter-item expanded "><a href="../01/02.html"><strong aria-hidden="true">1.2.</strong> Mimari</a></li><li class="chapter-item expanded "><a href="../01/03.html"><strong aria-hidden="true">1.3.</strong> MongoDB - NoSQL Veritabanı</a></li><li class="chapter-item expanded "><a href="../01/04.html"><strong aria-hidden="true">1.4.</strong> Express - Node.js web uygulama çerçevesi</a></li><li class="chapter-item expanded "><a href="../01/05.html" class="active"><strong aria-hidden="true">1.5.</strong> React - İstemci Tarafı Kütüphanesi</a></li><li class="chapter-item expanded "><a href="../01/06.html"><strong aria-hidden="true">1.6.</strong> Node.js - Sunucu Tarafı</a></li><li class="chapter-item expanded "><a href="../01/07.html"><strong aria-hidden="true">1.7.</strong> Socket.IO - Gerçek Zamanlı İletişim</a></li><li class="chapter-item expanded "><a href="../01/08.html"><strong aria-hidden="true">1.8.</strong> MERN Stack Avantajı</a></li></ol></li><li class="chapter-item expanded "><a href="../02/index.html"><strong aria-hidden="true">2.</strong> Express Sunucusu Oluşturma</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../02/01.html"><strong aria-hidden="true">2.1.</strong> Node.js kurulumu</a></li><li class="chapter-item expanded "><a href="../02/02.html"><strong aria-hidden="true">2.2.</strong> Proje başlatma</a></li><li class="chapter-item expanded "><a href="../02/03.html"><strong aria-hidden="true">2.3.</strong> Bağımlılıkların kurulumu</a></li><li class="chapter-item expanded "><a href="../02/04.html"><strong aria-hidden="true">2.4.</strong> Express Sunucusu Oluşturma</a></li></ol></li><li class="chapter-item expanded "><a href="../03/index.html"><strong aria-hidden="true">3.</strong> Authentification Routes - Kimlik Doğrulama Yolları</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../03/01.html"><strong aria-hidden="true">3.1.</strong> Creating Auth Routes - Kimlik Doğrulama Yolları Oluşturma</a></li><li class="chapter-item expanded "><a href="../03/02.html"><strong aria-hidden="true">3.2.</strong> Testing Authentication Routes with Postman - Postman ile Kimlik Doğrulama Yollarını Test Etme</a></li><li class="chapter-item expanded "><a href="../03/03.html"><strong aria-hidden="true">3.3.</strong> Authentication Controllers - Kimlik Doğrulama Kontrolörleri</a></li><li class="chapter-item expanded "><a href="../03/04.html"><strong aria-hidden="true">3.4.</strong> Validation middleware - Validation ara yazılımı</a></li><li class="chapter-item expanded "><a href="../03/05.html"><strong aria-hidden="true">3.5.</strong> Validation with Joi - Joi ile Validation</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Zwitch-Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="mern-yığınında-react"><a class="header" href="#mern-yığınında-react">MERN Yığınında React</a></h1>
+<p>MERN yığınında, "R" harfi React'i ifade eder ve bu, ön uç geliştirme için kritik bir bileşendir. React, bir JavaScript kütüphanesidir, bir framework değildir ve kullanıcı arayüzleri oluşturmak için özel olarak tasarlanmıştır. Facebook ekibi tarafından oluşturulan React, verimliliği ve esnekliği nedeniyle geliştirici topluluğunda büyük popülerlik kazanmıştır.</p>
+<h2 id="react-nedir"><a class="header" href="#react-nedir">React Nedir?</a></h2>
+<p>React, kullanıcı arayüzleri oluşturmak için deklaratif, bileşen tabanlı bir JavaScript kütüphanesidir. Geliştiricilere, yeniden kullanılabilir UI bileşenleri oluşturmalarına olanak tanır, bu bileşenler karmaşık UI'lara birleştirilebilir. React'in birincil amacı, karmaşık kullanıcı arayüzlerini daha küçük ve yönetilebilir parçalara bölerek geliştirme ve bakımını kolaylaştırmaktır.</p>
+<h3 id="reactin-temel-Özellikleri"><a class="header" href="#reactin-temel-Özellikleri">React'in Temel Özellikleri</a></h3>
+<ol>
+<li>
+<p><strong>Bileşen Tabanlı Mimari</strong>: React, uygulama geliştirme için modüler bir yaklaşımı teşvik eder, UI'yi izole edilmiş ve yeniden kullanılabilir bileşenlere böler. Bu, kod tabanının yönetilmesini ve bakımını kolaylaştırır.</p>
+</li>
+<li>
+<p><strong>Virtual DOM</strong>: React, performansı artırmak için Virtual DOM kullanır. Virtual DOM, gerçek DOM'un hafif bir kopyasıdır ve React, UI'nin sadece değişen kısımlarını güncelleyerek daha hızlı ve daha akıcı kullanıcı etkileşimleri sağlar.</p>
+</li>
+<li>
+<p><strong>Deklaratif UI</strong>: React ile geliştiriciler, UI'nin nasıl görünmesi gerektiğini tanımlar ve React, bu tanıma uygun olarak gerçek DOM'u günceller. Bu yaklaşım, kodu daha öngörülebilir ve hata ayıklamayı daha kolay hale getirir.</p>
+</li>
+<li>
+<p><strong>JSX Sözdizimi</strong>: React, JavaScript içinde HTML benzeri kod yazmayı sağlayan bir sözdizimi uzantısı olan JSX kullanır. JSX, kodun okunabilirliğini artırır ve bileşen yapısını görselleştirmeye yardımcı olur.</p>
+</li>
+<li>
+<p><strong>Tek Yönlü Veri Bağlama</strong>: React, tek yönlü veri akışını izler, bu da uygulamayı daha öngörülebilir ve hata ayıklamayı daha kolay hale getirir. Veriler, parent bileşenlerden child bileşenlere props aracılığıyla akar.</p>
+</li>
+<li>
+<p><strong>React Hooks</strong>: React 16.8'de tanıtılan hooks, fonksiyonel bileşenlerde state ve diğer React özelliklerini kullanmaya olanak tanır, daha temiz ve daha fonksiyonel bir React geliştirme yaklaşımını teşvik eder.</p>
+</li>
+</ol>
+<h2 id="react-kullanmanın-avantajları"><a class="header" href="#react-kullanmanın-avantajları">React Kullanmanın Avantajları</a></h2>
+<ul>
+<li><strong>Performans</strong>: React'in virtual DOM'u, gerçek DOM ile doğrudan etkileşimleri en aza indirerek performansı önemli ölçüde artırır, bu da yavaş ve kaynak yoğun olabilir.</li>
+<li><strong>Yeniden Kullanılabilirlik</strong>: Bileşen tabanlı mimari, geliştiricilerin kodu yeniden kullanmasına olanak tanır, bu da tekrarları azaltır ve geliştirme sürecini hızlandırır.</li>
+<li><strong>Ölçeklenebilirlik</strong>: React'in modüler yaklaşımı, uygulamaları ölçeklendirmeyi kolaylaştırır, bileşenleri ekleyip değiştirirken uygulamanın geri kalanını etkilemez.</li>
+<li><strong>Ekosistem</strong>: React'in zengin bir ekosistemi vardır, çok sayıda kütüphane, araç ve topluluk desteği, çözümler ve kaynaklar bulmayı kolaylaştırır.</li>
+</ul>
+<h2 id="react-projesi-kurulumu"><a class="header" href="#react-projesi-kurulumu">React Projesi Kurulumu</a></h2>
+<p>React'in avantajlarından biri, Create React App (CRA) gibi araçlarla yeni bir proje kurmanın kolaylığıdır. CRA, yeni bir React projesi için mantıklı bir varsayılan yapılandırma ayarlayan bir komut satırı aracıdır, geliştiricilerin kurulumla ilgili endişelenmeden hemen kodlamaya başlamasına olanak tanır.</p>
+<h3 id="cra-kullanarak-react-uygulaması-oluşturma-adımları"><a class="header" href="#cra-kullanarak-react-uygulaması-oluşturma-adımları">CRA Kullanarak React Uygulaması Oluşturma Adımları</a></h3>
+<ol>
+<li>
+<p><strong>Node.js ve npm Kurulumu</strong>: Makinenizde Node.js ve npm'in yüklü olduğundan emin olun. Bunları <a href="https://nodejs.org/">nodejs.org</a> adresinden indirip yükleyebilirsiniz.</p>
+</li>
+<li>
+<p><strong>Create React App Kurulumu</strong>: Terminalinizi açın ve Create React App'i global olarak kurmak için aşağıdaki komutu çalıştırın:</p>
+<pre><code class="language-bash">npm install -g create-react-app
+</code></pre>
+</li>
+<li>
+<p><strong>Yeni Bir React Projesi Oluşturma</strong>: Yeni bir React projesi oluşturmak için aşağıdaki komutu çalıştırın:</p>
+<pre><code class="language-bash">create-react-app my-app
+</code></pre>
+<p><code>my-app</code> ifadesini istediğiniz proje adıyla değiştirin.</p>
+</li>
+<li>
+<p><strong>Proje Dizini Değiştirme</strong>: Yeni projenizin dizinine geçin:</p>
+<pre><code class="language-bash">cd my-app
+</code></pre>
+</li>
+<li>
+<p><strong>Geliştirme Sunucusunu Başlatma</strong>: Geliştirme sunucusunu başlatmak için aşağıdaki komutu çalıştırın:</p>
+<pre><code class="language-bash">npm start
+</code></pre>
+<p>Bu, geliştirme sunucusunu başlatır ve uygulamayı varsayılan web tarayıcınızda açar.</p>
+</li>
+</ol>
+<h2 id="reactteki-temel-kavramlar"><a class="header" href="#reactteki-temel-kavramlar">React'teki Temel Kavramlar</a></h2>
+<p>Karmaşık uygulamalara dalmadan önce, React'teki bazı temel kavramları anlamak önemlidir.</p>
+<h3 id="bileşenler"><a class="header" href="#bileşenler">Bileşenler</a></h3>
+<p>Bileşenler, bir React uygulamasının yapı taşlarıdır. İki tür bileşen vardır:</p>
+<ul>
+<li><strong>Functional Components</strong>: JSX döndüren basit JavaScript fonksiyonlarıdır. Props kabul edebilirler ve state ve yaşam döngüsü metodları için hooks kullanırlar.</li>
+<li><strong>Class Components</strong>: <code>React.Component</code>i genişleten ve JSX döndürmek için <code>render</code> metoduna sahip ES6 sınıflarıdır. Class bileşenleri kendi state'lerini yönetebilir ve yaşam döngüsü metodlarına sahiptir.</li>
+</ul>
+<p>Functional Component Örneği:</p>
+<pre><code class="language-jsx">import React from 'react';
+
+function Greeting(props) {
+  return &lt;h1&gt;Hello, {props.name}!&lt;/h1&gt;;
+}
+
+export default Greeting;
+</code></pre>
+<p>Class Component Örneği:</p>
+<pre><code class="language-jsx">import React, { Component } from 'react';
+
+class Greeting extends Component {
+  render() {
+    return &lt;h1&gt;Hello, {this.props.name}!&lt;/h1&gt;;
+  }
+}
+
+export default Greeting;
+</code></pre>
+<h3 id="props-ve-state"><a class="header" href="#props-ve-state">Props ve State</a></h3>
+<ul>
+<li>
+<p><strong>Props</strong>: Props (properties'in kısaltması), parent bileşenlerden child bileşenlere geçirilen salt okunur özelliklerdir. Verileri ve olay işleyicilerini child bileşenlere iletmek için kullanılırlar.</p>
+</li>
+<li>
+<p><strong>State</strong>: State, bileşene özel olan ve zamanla değişebilen yerel veri deposudur. Bir bileşenin state'i değiştiğinde, bileşen yeni state'i yansıtmak için yeniden render edilir.</p>
+</li>
+</ul>
+<p>Class Component'te State Kullanımı Örneği:</p>
+<pre><code class="language-jsx">import React, { Component } from 'react';
+
+class Counter extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { count: 0 };
+  }
+
+  increment = () =&gt; {
+    this.setState({ count: this.state.count + 1 });
+  }
+
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;p&gt;Count: {this.state.count}&lt;/p&gt;
+        &lt;button onClick={this.increment}&gt;Increment&lt;/button&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+export default Counter;
+</code></pre>
+<p>Hooks ile Functional Component'te State Kullanımı Örneği:</p>
+<pre><code class="language-jsx">import React, { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Count: {count}&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;Increment&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default Counter;
+</code></pre>
+<h2 id="sonuç"><a class="header" href="#sonuç">Sonuç</a></h2>
+<p>React, kullanıcı arayüzleri oluşturmak için güçlü ve verimli bir kütüphanedir, bileşen tabanlı mimari, virtual DOM ve zengin ekosistem sunar. Create React App gibi araçlarla bir React projesi kurmak oldukça basittir ve bileşenler, props ve state gibi temel kavramları anlamak, ölçeklenebilir uygulamalar oluşturmak için gereklidir. React ile ilerledikçe, karmaşık kullanıcı arayüzlerini yönetmenin ve dinamik, duyarlı uygulamalar oluşturmanın daha kolay olduğunu göreceksiniz.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../01/04.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../01/06.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../01/04.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../01/06.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

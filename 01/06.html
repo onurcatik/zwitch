@@ -1,0 +1,365 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Node.js - Sunucu Tarafı - Zwitch-Documentation</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../01/index.html"><strong aria-hidden="true">1.</strong> Giriş</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../01/01.html"><strong aria-hidden="true">1.1.</strong> Uygulama Önizlemesi</a></li><li class="chapter-item expanded "><a href="../01/02.html"><strong aria-hidden="true">1.2.</strong> Mimari</a></li><li class="chapter-item expanded "><a href="../01/03.html"><strong aria-hidden="true">1.3.</strong> MongoDB - NoSQL Veritabanı</a></li><li class="chapter-item expanded "><a href="../01/04.html"><strong aria-hidden="true">1.4.</strong> Express - Node.js web uygulama çerçevesi</a></li><li class="chapter-item expanded "><a href="../01/05.html"><strong aria-hidden="true">1.5.</strong> React - İstemci Tarafı Kütüphanesi</a></li><li class="chapter-item expanded "><a href="../01/06.html" class="active"><strong aria-hidden="true">1.6.</strong> Node.js - Sunucu Tarafı</a></li><li class="chapter-item expanded "><a href="../01/07.html"><strong aria-hidden="true">1.7.</strong> Socket.IO - Gerçek Zamanlı İletişim</a></li><li class="chapter-item expanded "><a href="../01/08.html"><strong aria-hidden="true">1.8.</strong> MERN Stack Avantajı</a></li></ol></li><li class="chapter-item expanded "><a href="../02/index.html"><strong aria-hidden="true">2.</strong> Express Sunucusu Oluşturma</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../02/01.html"><strong aria-hidden="true">2.1.</strong> Node.js kurulumu</a></li><li class="chapter-item expanded "><a href="../02/02.html"><strong aria-hidden="true">2.2.</strong> Proje başlatma</a></li><li class="chapter-item expanded "><a href="../02/03.html"><strong aria-hidden="true">2.3.</strong> Bağımlılıkların kurulumu</a></li><li class="chapter-item expanded "><a href="../02/04.html"><strong aria-hidden="true">2.4.</strong> Express Sunucusu Oluşturma</a></li></ol></li><li class="chapter-item expanded "><a href="../03/index.html"><strong aria-hidden="true">3.</strong> Authentification Routes - Kimlik Doğrulama Yolları</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../03/01.html"><strong aria-hidden="true">3.1.</strong> Creating Auth Routes - Kimlik Doğrulama Yolları Oluşturma</a></li><li class="chapter-item expanded "><a href="../03/02.html"><strong aria-hidden="true">3.2.</strong> Testing Authentication Routes with Postman - Postman ile Kimlik Doğrulama Yollarını Test Etme</a></li><li class="chapter-item expanded "><a href="../03/03.html"><strong aria-hidden="true">3.3.</strong> Authentication Controllers - Kimlik Doğrulama Kontrolörleri</a></li><li class="chapter-item expanded "><a href="../03/04.html"><strong aria-hidden="true">3.4.</strong> Validation middleware - Validation ara yazılımı</a></li><li class="chapter-item expanded "><a href="../03/05.html"><strong aria-hidden="true">3.5.</strong> Validation with Joi - Joi ile Validation</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Zwitch-Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="nodejs-mern-stackin-sunucu-tarafı-motoru"><a class="header" href="#nodejs-mern-stackin-sunucu-tarafı-motoru">Node.js: MERN Stack'in Sunucu Tarafı Motoru</a></h1>
+<h2 id="nodejsin-genel-görünümü"><a class="header" href="#nodejsin-genel-görünümü">Node.js'in Genel Görünümü</a></h2>
+<p>Node.js, geliştiricilerin JavaScript kodunu sunucu tarafında yürütmesine olanak tanıyan açık kaynaklı, platformlar arası bir JavaScript çalışma zamanıdır. Chrome'un V8 JavaScript motoru üzerine kurulu olan Node.js, ölçeklenebilir ve yüksek performanslı ağ uygulamalarının geliştirilmesine imkan tanır.</p>
+<h2 id="nodejsin-mern-stack-İçindeki-Önemi"><a class="header" href="#nodejsin-mern-stack-İçindeki-Önemi">Node.js'in MERN Stack İçindeki Önemi</a></h2>
+<p>MongoDB, Express.js, React.js ve Node.js'den oluşan MERN stack, hem frontend hem de backend geliştirme için JavaScript'i kullanır. Node.js, tarayıcı dışında JavaScript kodunu yürüten sunucu tarafı motoru olarak önemli bir bileşendir. Stack boyunca tutarlılık sağlayarak geliştirmeyi basitleştirir ve verimliliği artırır.</p>
+<h2 id="nodejsin-avantajları"><a class="header" href="#nodejsin-avantajları">Node.js'in Avantajları</a></h2>
+<ol>
+<li>
+<p><strong>Yüksek Performans ve Ölçeklenebilirlik:</strong></p>
+<ul>
+<li>Node.js, çok sayıda eşzamanlı bağlantıyı işleme konusunda mükemmeldir ve veri yoğun uygulamalar için uygundur. Engellemeyen, olay güdümlü mimarisi, yüksek veri geçişi ve ölçeklenebilirlik sağlar; bu, gerçek zamanlı uygulamalar için esastır.</li>
+</ul>
+</li>
+<li>
+<p><strong>NPM Ekosistemi:</strong></p>
+<ul>
+<li>Node Package Manager (NPM), kapsamlı bir paket ve modül kütüphanesidir. Binlerce açık kaynaklı paketi uygulamalara kolayca entegre etmeyi sağlar. Geliştiriciler, bu paketlerin kullanıcı değerlendirmeleri, test kapsamı ve topluluk geri bildirimlerini kontrol ederek popülerliğini ve güvenilirliğini doğrulayabilirler.</li>
+</ul>
+</li>
+<li>
+<p><strong>Olay Güdümlü Mimari:</strong></p>
+<ul>
+<li>Node.js, olay güdümlü, engellemeyen bir I/O modeli kullanır, bu da gerçek zamanlı uygulamalar için son derece verimli olmasını sağlar. Bu mimari, Node.js'nin zaman alıcı işlemlerle tıkanmadan birden fazla isteği aynı anda ele almasına olanak tanır.</li>
+</ul>
+</li>
+</ol>
+<h2 id="bir-twitch-uygulaması-için-api-oluşturma"><a class="header" href="#bir-twitch-uygulaması-için-api-oluşturma">Bir Twitch Uygulaması için API Oluşturma</a></h2>
+<p>Node.js'in pratik uygulamasını göstermek için, chat işlevselliği <code>socket.io</code> kullanarak Twitch benzeri bir uygulama için basit bir API oluşturacağız.</p>
+<h3 id="gereksinimler"><a class="header" href="#gereksinimler">Gereksinimler</a></h3>
+<p>Aşağıdakilerin kurulu olduğundan emin olun:</p>
+<ul>
+<li>Node.js</li>
+<li>NPM</li>
+</ul>
+<h3 id="proje-kurulumu"><a class="header" href="#proje-kurulumu">Proje Kurulumu</a></h3>
+<ol>
+<li>
+<p><strong>Projeyi Başlatın:</strong></p>
+<pre><code class="language-bash">mkdir twitch-api
+cd twitch-api
+npm init -y
+</code></pre>
+</li>
+<li>
+<p><strong>Bağımlılıkları Yükleyin:</strong></p>
+<pre><code class="language-bash">npm install express socket.io
+</code></pre>
+</li>
+</ol>
+<h3 id="sunucu-oluşturma"><a class="header" href="#sunucu-oluşturma">Sunucu Oluşturma</a></h3>
+<ol>
+<li>
+<p><strong>Express Sunucusunu Kurun:</strong></p>
+<p><code>server.js</code> adlı bir dosya oluşturun ve aşağıdaki kodu ekleyin:</p>
+<pre><code class="language-javascript">const express = require('express');
+const http = require('http');
+const socketIo = require('socket.io');
+
+const app = express();
+const server = http.createServer(app);
+const io = socketIo(server);
+
+const PORT = process.env.PORT || 3000;
+
+app.get('/', (req, res) =&gt; {
+    res.send('Twitch-benzeri API\'ye Hoş Geldiniz');
+});
+
+server.listen(PORT, () =&gt; {
+    console.log(`Sunucu ${PORT} portunda çalışıyor`);
+});
+
+// Socket bağlantılarını yönetin
+io.on('connection', (socket) =&gt; {
+    console.log('Yeni bir müşteri bağlandı');
+
+    socket.on('disconnect', () =&gt; {
+        console.log('Müşteri bağlantısı kesildi');
+    });
+
+    socket.on('message', (message) =&gt; {
+        io.emit('message', message);
+    });
+});
+</code></pre>
+</li>
+<li>
+<p><strong>Sunucuyu Çalıştırın:</strong></p>
+<p>Terminalde aşağıdaki komutu çalıştırarak sunucuyu başlatın:</p>
+<pre><code class="language-bash">node server.js
+</code></pre>
+</li>
+</ol>
+<h3 id="socketio-ile-chat-fonksiyonelliğini-uygulama"><a class="header" href="#socketio-ile-chat-fonksiyonelliğini-uygulama"><code>socket.io</code> ile Chat Fonksiyonelliğini Uygulama</a></h3>
+<ol>
+<li>
+<p><strong>İstemci Tarafı Kurulumu:</strong></p>
+<p><code>public</code> adlı bir dizin oluşturun ve içinde <code>index.html</code> dosyası oluşturun:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Twitch Chat&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Twitch Chat&lt;/h1&gt;
+    &lt;input id="message" type="text" placeholder="Mesajınızı girin"&gt;
+    &lt;button onclick="sendMessage()"&gt;Gönder&lt;/button&gt;
+    &lt;ul id="messages"&gt;&lt;/ul&gt;
+
+    &lt;script src="/socket.io/socket.io.js"&gt;&lt;/script&gt;
+    &lt;script&gt;
+        const socket = io();
+
+        socket.on('message', (message) =&gt; {
+            const li = document.createElement('li');
+            li.textContent = message;
+            document.getElementById('messages').appendChild(li);
+        });
+
+        function sendMessage() {
+            const message = document.getElementById('message').value;
+            socket.emit('message', message);
+            document.getElementById('message').value = '';
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</li>
+<li>
+<p><strong>Statik Dosyaları Sunma:</strong></p>
+<p><code>server.js</code> dosyasını statik dosyaları sunacak şekilde değiştirin:</p>
+<pre><code class="language-javascript">app.use(express.static('public'));
+</code></pre>
+</li>
+</ol>
+<h2 id="sonuç"><a class="header" href="#sonuç">Sonuç</a></h2>
+<p>Node.js, yüksek performans, ölçeklenebilirlik ve geniş bir NPM ekosistemi sunarak MERN stack'in önemli bir parçasıdır. Olay güdümlü mimarisi, gerçek zamanlı uygulamalar için idealdir. Basit Twitch-benzeri API örneği ile gösterildiği gibi, Node.js kullanarak JavaScript ile güçlü ve verimli sunucu tarafı uygulamalar geliştirebilir, stack boyunca tutarlılık ve geliştirme kolaylığı sağlayabilirsiniz.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../01/05.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../01/07.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../01/05.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../01/07.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

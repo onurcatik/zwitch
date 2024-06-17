@@ -1,0 +1,363 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Creating Auth Routes - Kimlik Doğrulama Yolları Oluşturma - Zwitch-Documentation</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../01/index.html"><strong aria-hidden="true">1.</strong> Giriş</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../01/01.html"><strong aria-hidden="true">1.1.</strong> Uygulama Önizlemesi</a></li><li class="chapter-item expanded "><a href="../01/02.html"><strong aria-hidden="true">1.2.</strong> Mimari</a></li><li class="chapter-item expanded "><a href="../01/03.html"><strong aria-hidden="true">1.3.</strong> MongoDB - NoSQL Veritabanı</a></li><li class="chapter-item expanded "><a href="../01/04.html"><strong aria-hidden="true">1.4.</strong> Express - Node.js web uygulama çerçevesi</a></li><li class="chapter-item expanded "><a href="../01/05.html"><strong aria-hidden="true">1.5.</strong> React - İstemci Tarafı Kütüphanesi</a></li><li class="chapter-item expanded "><a href="../01/06.html"><strong aria-hidden="true">1.6.</strong> Node.js - Sunucu Tarafı</a></li><li class="chapter-item expanded "><a href="../01/07.html"><strong aria-hidden="true">1.7.</strong> Socket.IO - Gerçek Zamanlı İletişim</a></li><li class="chapter-item expanded "><a href="../01/08.html"><strong aria-hidden="true">1.8.</strong> MERN Stack Avantajı</a></li></ol></li><li class="chapter-item expanded "><a href="../02/index.html"><strong aria-hidden="true">2.</strong> Express Sunucusu Oluşturma</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../02/01.html"><strong aria-hidden="true">2.1.</strong> Node.js kurulumu</a></li><li class="chapter-item expanded "><a href="../02/02.html"><strong aria-hidden="true">2.2.</strong> Proje başlatma</a></li><li class="chapter-item expanded "><a href="../02/03.html"><strong aria-hidden="true">2.3.</strong> Bağımlılıkların kurulumu</a></li><li class="chapter-item expanded "><a href="../02/04.html"><strong aria-hidden="true">2.4.</strong> Express Sunucusu Oluşturma</a></li></ol></li><li class="chapter-item expanded "><a href="../03/index.html"><strong aria-hidden="true">3.</strong> Authentification Routes - Kimlik Doğrulama Yolları</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../03/01.html" class="active"><strong aria-hidden="true">3.1.</strong> Creating Auth Routes - Kimlik Doğrulama Yolları Oluşturma</a></li><li class="chapter-item expanded "><a href="../03/02.html"><strong aria-hidden="true">3.2.</strong> Testing Authentication Routes with Postman - Postman ile Kimlik Doğrulama Yollarını Test Etme</a></li><li class="chapter-item expanded "><a href="../03/03.html"><strong aria-hidden="true">3.3.</strong> Authentication Controllers - Kimlik Doğrulama Kontrolörleri</a></li><li class="chapter-item expanded "><a href="../03/04.html"><strong aria-hidden="true">3.4.</strong> Validation middleware - Validation ara yazılımı</a></li><li class="chapter-item expanded "><a href="../03/05.html"><strong aria-hidden="true">3.5.</strong> Validation with Joi - Joi ile Validation</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Zwitch-Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="kimlik-doğrulama-yolları-oluşturm"><a class="header" href="#kimlik-doğrulama-yolları-oluşturm">Kimlik Doğrulama Yolları Oluşturm</a></h1>
+<p>Bu eğitimde, sunucu tarafında kimlik doğrulamayı yapılandıracağız ve MongoDB veritabanı ile bağlantı kuracağız. Burada belirtilen adımlar, yazılım geliştirme konusundaki en iyi uygulamalara uygun olarak kesin ve doğru bir şekilde hazırlanmıştır.</p>
+<h2 id="klasör-yapısı-ve-kurulum"><a class="header" href="#klasör-yapısı-ve-kurulum">Klasör Yapısı ve Kurulum</a></h2>
+<ol>
+<li>
+<p><strong>Source Dizini Oluşturun</strong>:</p>
+<ul>
+<li><code>server</code> klasörünüzde, <code>src</code> adlı yeni bir dizin oluşturun.</li>
+<li><code>src</code> klasörü içinde <code>routes</code> adlı bir başka dizin oluşturun.</li>
+</ul>
+<p>Bu yapı, ölçeklenebilir gerçek dünya uygulamaları için temiz ve düzenli bir kod tabanı tutmanıza yardımcı olur.</p>
+</li>
+<li>
+<p><strong>Yönlendirmeleri Ayrı Bir Dosyada Tanımlayın</strong>:</p>
+<ul>
+<li><code>routes</code> klasöründe <code>routes.js</code> adında bir dosya oluşturun.</li>
+</ul>
+</li>
+</ol>
+<h2 id="yönlendirmeleri-yazma"><a class="header" href="#yönlendirmeleri-yazma">Yönlendirmeleri Yazma</a></h2>
+<ol start="3">
+<li>
+<p><strong>Express'i İçe Aktarın</strong>:</p>
+<pre><code class="language-javascript">import express from 'express';
+</code></pre>
+</li>
+<li>
+<p><strong>Router'ı Başlatın</strong>:</p>
+<pre><code class="language-javascript">const router = express.Router();
+</code></pre>
+</li>
+<li>
+<p><strong>Register ve Login için GET Yönlendirmelerini Tanımlayın</strong>:</p>
+<ul>
+<li>Yönlendirmeleri tanımlamak için aşağıdaki kodu ekleyin:
+<pre><code class="language-javascript">// Register route
+router.get('/register', (req, res) =&gt; {
+    res.send('This is the register route.');
+});
+
+// Login route
+router.get('/login', (req, res) =&gt; {
+    res.send('This is the login route.');
+});
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Router'ı Dışa Aktarın</strong>:</p>
+<pre><code class="language-javascript">export default router;
+</code></pre>
+</li>
+</ol>
+<h2 id="yönlendirmeleri-ana-sunucu-dosyasına-entegre-etme"><a class="header" href="#yönlendirmeleri-ana-sunucu-dosyasına-entegre-etme">Yönlendirmeleri Ana Sunucu Dosyasına Entegre Etme</a></h2>
+<ol start="7">
+<li>
+<p><strong>index.js'de Yönlendirmeleri İçe Aktarın</strong>:</p>
+<ul>
+<li><code>index.js</code> dosyasını açın ve yönlendirmeleri içe aktarın:
+<pre><code class="language-javascript">import routes from './src/routes/routes.js';
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Yönlendirmeleri Express Uygulamasına Kaydedin</strong>:</p>
+<ul>
+<li>İçe aktarılan yönlendirmeleri kullanmak için aşağıdaki kodu ekleyin:
+<pre><code class="language-javascript">app.use('/api/auth', routes);
+</code></pre>
+</li>
+</ul>
+<p>Bu, yönlendirmelerin <code>/api/auth</code> uç noktasında erişilebilir olmasını sağlar.</p>
+</li>
+</ol>
+<h2 id="yönlendirmeleri-test-etme"><a class="header" href="#yönlendirmeleri-test-etme">Yönlendirmeleri Test Etme</a></h2>
+<ol start="9">
+<li>
+<p><strong>Sunucuyu Başlatın</strong>:</p>
+<ul>
+<li>Sunucunuzun <code>nodemon</code> veya benzeri bir araç ile çalıştığından emin olun:
+<pre><code class="language-bash">nodemon index.js
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Bir Tarayıcı veya API İstemcisi Kullanarak Yönlendirmeleri Doğrulayın</strong>:</p>
+<ul>
+<li>Tarayıcınızı açın ve şu adreslere gidin:
+<ul>
+<li><code>http://localhost:5002/api/auth/register</code> "This is the register route." mesajını görmek için.</li>
+<li><code>http://localhost:5002/api/auth/login</code> "This is the login route." mesajını görmek için.</li>
+</ul>
+</li>
+</ul>
+<p>Tarayıcıda varsayılan HTTP yöntemi GET olduğundan, POST isteklerini test etmek için Postman veya Insomnia gibi bir araç gereklidir.</p>
+</li>
+</ol>
+<h2 id="post-İsteklerini-İşleme"><a class="header" href="#post-İsteklerini-İşleme">POST İsteklerini İşleme</a></h2>
+<ol start="11">
+<li>
+<p><strong>Register ve Login için POST Yönlendirmelerini Tanımlayın</strong>:</p>
+<ul>
+<li><code>routes.js</code> dosyasını, POST yönlendirmelerini içerecek şekilde değiştirin:
+<pre><code class="language-javascript">// POST Register route
+router.post('/register', (req, res) =&gt; {
+    // Handle registration logic here
+    res.send('User registered successfully.');
+});
+
+// POST Login route
+router.post('/login', (req, res) =&gt; {
+    // Handle login logic here
+    res.send('User logged in successfully.');
+});
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>POST İsteklerini Bir API İstemcisi Kullanarak Test Edin</strong>:</p>
+<ul>
+<li>Postman veya Insomnia kullanarak POST isteklerini gönderin:
+<ul>
+<li><code>http://localhost:5002/api/auth/register</code></li>
+<li><code>http://localhost:5002/api/auth/login</code></li>
+</ul>
+</li>
+<li>Gerekli yük verilerini ekleyin, örneğin kayıt için kullanıcı adı, e-posta ve parola; giriş için ise e-posta ve parola.</li>
+</ul>
+</li>
+</ol>
+<h2 id="Özet"><a class="header" href="#Özet">Özet</a></h2>
+<p>Bu eğitimde, bir MERN yığın uygulamasında temel bir yönlendirme yapısının nasıl kurulacağını ele aldık. Ana adımlar arasında yönlendirmeler için bir dizin yapısı oluşturma, yönlendirmeleri ayrı bir dosyada tanımlama, bu yönlendirmeleri ana sunucu dosyasına entegre etme ve hem GET hem de POST isteklerini test etme yer alıyordu. Tarayıcılar varsayılan olarak GET isteklerini kullandığından, POST isteklerini test etmek için Postman veya Insomnia gibi araçları kullanmak önemlidir. Bu yapı, MongoDB veritabanına bağlanma ve gerçek kimlik doğrulama mantığını uygulama gibi daha ileri geliştirmeler için sağlam bir temel sağlar.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../03/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../03/02.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../03/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../03/02.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
