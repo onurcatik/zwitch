@@ -1,0 +1,536 @@
+/* Genel Gösterge Paneli Konteyneri */
+.dashboard-container {
+    width: 100%; /* Genişliği %100 yapar */
+    height: 100vh; /* Yüksekliği viewport yüksekliği kadar yapar */
+    background: linear-gradient(145deg, #1b1b2f, #302b63, #0f0c29); /* Karanlık mavi-mor degrade */
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff; /* Yazı rengini beyaz yapar */
+}
+
+/* İsteğe bağlı olarak, arka plana neon bir parlama efekti ekleyebilirsin */
+.dashboard-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(131, 58, 180, 0.2), transparent 70%);
+    z-index: -1; /* Efekti arka plana iter */
+}
+
+
+/* Navigasyon Çubuğu Konteyneri */
+.nav-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid #d3d3d3;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: black;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover durumu */
+.nav-container:hover {
+    background: linear-gradient(145deg, #36d1dc, #5b86e5);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Scroll durumu için ekleme */
+.nav-container.scrolled {
+    background-color: #333; /* Scroll sırasında arka plan rengini koyulaştır */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Scroll sırasında gölgeyi artır */
+}
+
+/* Mobil cihazlar için responsive düzenleme */
+@media (max-width: 768px) {
+    .nav-container {
+        height: 50px;
+        padding: 0 15px;
+    }
+}
+
+
+
+
+
+/* Yan Menü (Sidebar) Konteyneri */
+.sidebar-container {
+    position: absolute; /* Mutlak konumlandırma */
+    height: calc(100vh - 50px); /* Yüksekliği, viewport yüksekliğinden navigasyon çubuğu yüksekliğini çıkararak ayarlar */
+    bottom: 0; /* Alt kenara yapıştırır */
+    left: 0; /* Sol kenara yapıştırır */
+    width: 200px; /* Genişliği 200 piksel */
+    background: rgb(230, 229, 229);/* Arka plan rengini açık gri yapar */
+    display: flex; /* Flexbox düzeni kullanır */
+    flex-direction: column; /* Dikey yönlendirme */
+    
+}
+
+/* Navigasyon Logosu Konteyneri */
+.nav-logo-container {
+    width: 30px; /* Genişliği 30 piksel */
+    margin-left: 10px; /* Sol marjin 10 piksel */
+}
+
+/* Navigasyon Butonları */
+.nav-button {
+    font-size: 18px; /* Yazı boyutu 18 piksel */
+    margin-left: 20px; /* Sol marjin 20 piksel */
+    margin-right: 20px; /* Sağ marjin 20 piksel */
+    color: white; /* Yazı rengi siyah */
+    cursor: pointer; /* Üzerine gelindiğinde imleç pointer olur */
+    transition: 0.3s; /* Geçiş efekti 0.3 saniye */
+    border-radius: 50px;
+
+    
+}
+
+/* Navigasyon Butonlarının Hover Durumu */
+.nav-button:hover {
+    opacity: 0.7;
+    background: linear-gradient(145deg, #6a11cb, #2575fc); /* Üzerine gelindiğinde opaklık %70 olur */
+}
+
+/* Navigasyon Butonlarının Konteyneri */
+.nav-buttons-container {
+    display: flex; /* Flexbox düzeni kullanır */
+    align-items: center; /* Dikeyde ortalar */
+    justify-content: space-between; /* Butonlar arasında eşit boşluk bırakır */
+    width: 100%; /* Genişliği %100 yapar */
+    
+}
+
+/* Yan Menü Başlık */
+.sidebar-title {
+    font-size: 22px; /* Yazı boyutu 22 piksel */
+    margin-left: 10px; /* Sol marjin 10 piksel */
+    margin-top: 20px; /* Üst marjin 20 piksel */
+    margin-bottom: 1cqmax; /* Muhtemelen yazım hatası: '1cqmax' yerine '1em' veya başka bir değer olmalı */
+    color: black; /* Yazı rengi siyah */
+}
+
+/* Yan Menü Alt Başlık */
+.sidebar-subtitle {
+    font-size: 14px; /* Yazı boyutu 14 piksel */
+    font-weight: bold; /* Yazı kalınlığı */
+    margin-left: 10px; /* Sol marjin 10 piksel */
+    color: black; /* Yazı rengi siyah */
+}
+
+/* Yan Menü Liste Öğesi */
+.sidebar-list-item {
+   display: flex; /* Flexbox düzeni kullanır */
+   width: 100%; /* Genişliği %100 yapar */
+   margin-top: 10px; /* Üst marjin 10 piksel */
+   justify-content: space-between; /* Öğeler arasında eşit boşluk bırakır */
+   align-items: center; /* Dikeyde ortalar */
+}
+
+/* Yan Menü Kullanıcı Adı */
+.sidebar-list-username {
+    font-size: 18px; /* Yazı boyutu 18 piksel */
+    margin-left: 10px; /* Sol marjin 10 piksel */
+    color: black; /* Yazı rengi siyah */
+    cursor: pointer; /* Üzerine gelindiğinde imleç pointer olur */
+    transition: 0.3s; /* Geçiş efekti 0.3 saniye */
+}
+
+/* Yan Menü Kullanıcı Adı Hover Durumu */
+.sidebar-list-username:hover {
+    opacity: 0.7; /* Üzerine gelindiğinde opaklık %70 olur */
+}
+
+/* Yan Menü Durum Bilgisi */
+.sidebar-list-status {
+    font-size: 14px; /* Yazı boyutu 14 piksel */
+    font-weight: bold; /* Yazı kalınlığı */
+    margin-top: 10px; /* Üst marjin 10 piksel */
+    margin-right: 10px; /* Sağ marjin 10 piksel */
+    color: black; /* Yazı rengi siyah */
+    cursor: pointer; /* Üzerine gelindiğinde imleç pointer olur */
+    transition: 0.3s; /* Geçiş efekti 0.3 saniye */
+}
+
+/* İçerik Konteyneri */
+.content-container {
+    position: absolute; /* Mutlak konumlandırma */
+    height: calc(100vh - 50px); /* Yüksekliği, viewport yüksekliğinden navigasyon çubuğu yüksekliğini çıkararak ayarlar */
+    width: calc(100vw - 200px); /* Genişliği, viewport genişliğinden yan menü genişliğini çıkararak ayarlar */
+    right: 0; /* Sağ kenara yapıştırır */
+    top: 50px; /* Üstten 50 piksel boşluk bırakır */
+    overflow-x: hidden; /* Yatay taşmayı gizler */
+}
+
+/* Kanallar Konteyneri */
+.channels-container {
+    display: grid; /* Grid düzeni kullanır */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Sütunları otomatik doldurur, her biri en az 300px genişliğinde */
+    gap: 10px; /* Grid öğeleri arasında 10 piksel boşluk */
+    width: 100%; /* Genişliği %100 yapar */
+   
+}
+
+.channels-card {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    height: 300px;
+    max-width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    bottom: -10px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    background-size: 200%
+
+
+}
+
+/* Kartların farklı renkleri */
+.channels-card:nth-child(1) {
+    background: linear-gradient(145deg, #ff7e5f, #562a09); /* Turuncu - Pembe degrade */
+}
+
+.channels-card:nth-child(2) {
+    background: linear-gradient(145deg, #6a11cb, #2575fc); /* Mor - Mavi degrade */
+}
+
+.channels-card:nth-child(3) {
+    background: linear-gradient(145deg, #43cea2, #185a9d); /* Yeşil - Mavi degrade */
+}
+
+.channels-card:nth-child(4) {
+    background: linear-gradient(145deg, #ff512f, #dd2476); /* Kırmızı - Mor degrade */
+}
+
+.channels-card:nth-child(5) {
+    background: linear-gradient(145deg, #654ea3, #eaafc8); /* Mor - Pembe degrade */
+}
+
+.channels-card:nth-child(6) {
+    background: linear-gradient(145deg, #36d1dc, #5b86e5); /* Turkuaz - Mavi degrade */
+}
+
+/* Hover efekti */
+.channels-card:hover {
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 255, 255, 0.5); /* Hover efektiyle parlama */
+    transform: scale(1.05);
+}
+
+
+
+/* Kanal Kartının Hover Durumu */
+.channels-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Kanal Avatar Konteyneri */
+.channels-avatar-container {
+    height: 200px; /* Yüksekliği 200 piksel */
+    border: 2px solid black;
+    
+}
+
+/* Kanal Kartı Başlığı */
+.channels-card-title {
+    font-size: 22px; /* Yazı boyutu 22 piksel */
+    margin-top: 5px; /* Üst marjin 5 piksel */
+    margin-bottom: 5px; /* Alt marjin 5 piksel */
+    color: white; /* Yazı rengi siyah */
+}
+
+/* Kanal Kartı Metni */
+.channels-card-text {
+    font-size: 14px; /* Yazı boyutu 14 piksel */
+    margin-bottom: 5px; /* Alt marjin 5 piksel */
+    color: white; /* Yazı rengi siyah */
+}
+
+/* Ayarlar Konteyneri */
+.settings-container {
+    font-size: 24px; /* Yazı boyutu 24 piksel */
+    margin-left: 10px; /* Sol marjin 10 piksel */
+    margin-top: 20px; /* Üst marjin 20 piksel */
+    color: white;
+}
+
+/* Ayarlar Formu */
+.settings-form {
+    display: flex;
+    flex-direction: column;
+    margin: 40px auto;
+    padding: 20px;
+    width: 400px;
+    background-color: gray; /* Beyaz arka plan */
+    border-radius: 10px; /* Yuvarlatılmış köşeler */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Yumuşak gölge */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-family:'Times New Roman', Times, serif;
+     /* Geçiş efektleri */
+}
+
+.settings-form h2 {
+    text-align: centerd;
+    color: black; /* Başlık rengi */
+}
+
+.settings-form label {
+    margin-top: 15px; /* Üstte boşluk */
+    color: #f81717; /* Etiket rengi */
+}
+
+.settings-form input,
+.settings-form select,
+.settings-form textarea {
+    margin-top: 10px; /* Elemanlar arasında boşluk */
+    padding: 10px; /* İç boşluk */
+    border: 1px solid #ccc; /* İnce kenar çerçevesi */
+    border-radius: 5px; /* Yuvarlatılmış köşeler */
+    font-size: 16px; /* Yazı boyutu */
+    transition: border-color 0.3s ease; /* Kenar çerçevesi geçiş efekti */
+}
+
+.settings-form input:focus,
+.settings-form select:focus,
+.settings-form textarea:focus {
+    border-color: #007bff; /* Odaklanıldığında mavi kenar rengi */
+    outline: none; /* Kenar çerçevesi dışındaki hatayı kaldırır */
+}
+
+.settings-form button {
+    margin-top: 20px; /* Üstte boşluk */
+    padding: 10px; /* İç boşluk */
+    background-color: #007bff; /* Buton rengi */
+    color: white; /* Yazı rengi */
+    border: none; /* Kenar çerçevesi yok */
+    border-radius: 5px; /* Yuvarlatılmış köşeler */
+    font-size: 16px; /* Yazı boyutu */
+    cursor: pointer; /* İmleç gösterimi */
+    transition: background-color 0.3s ease; /* Geçiş efekti */
+}
+
+.settings-form button:hover {
+    background-color: #0056b3; /* Hover durumu */
+}
+
+/* Ayarlar Formundaki Butonlar */
+.settings-form button {
+    margin-top: 10px; /* Üst marjin 10 piksel */
+    margin-bottom: 10px; /* Alt marjin 10 piksel */
+    padding: 10px; /* İç boşluk 10 piksel */
+    font-size: 18px; /* Yazı boyutu 18 piksel */
+    background-color: #772ce8; /* Arka plan rengi mor */
+    color: white; /* Yazı rengi beyaz */
+    border: none; /* Kenarlık yok */
+    cursor: pointer; /* Üzerine gelindiğinde imleç pointer olur */
+    transition: 0.3s; /* Geçiş efekti 0.3 saniye */
+}
+
+
+
+/* Ayarlar Formundaki Butonların Hover Durumu */
+.settings-form button:hover {
+    opacity: 0.7; /* Üzerine gelindiğinde opaklık %70 olur */
+}
+
+/* Ayarlar Formundaki Butonların Disabled Durumu */
+.settings-form button:disabled {
+    opacity: 0.3; /* Disabled olduğunda opaklık %30 olur */
+}
+
+/* Ayarlar Stream Key Konteyneri */
+.settings-stream-key-container {
+    display: flex; /* Flexbox düzeni kullanır */
+    flex-direction: column; /* Dikey yönlendirme */
+    margin-top: 20px; /* Üst marjin 20 piksel */
+    margin-right: 20px; /* Sağ marjin 20 piksel */
+    box-shadow: 0 0 5px 0 lightgrey; /* Hafif gölge efekti verir */
+    background-color: white; /* Arka plan rengini açık gri yapar */
+    padding: 10px;
+    color: black; /* İç boşluk 10 piksel */
+    align-items: center;
+}
+
+/* Kanal Konteyneri */
+.channel-container {
+    height: 100%; /* Yüksekliği %100 yapar */
+    width: 100%; /* Genişliği %100 yapar */
+    display: flex; /* Flexbox düzeni kullanır */
+}
+
+/* Kanal Video Açıklama Bölümü */
+.channel-video-description-section {
+    height: 100%; /* Yüksekliği %100 yapar */
+    width: 80%; /* Genişliği %80 yapar */
+}
+
+/* Kanal Video Konteyneri */
+.channel-video-container {
+    width: 100%; /* Genişliği %100 yapar */
+    background-color: black; /* Arka plan rengini siyah yapar */
+}
+
+/* Kanal Açıklama Konteyneri */
+.channel-description-container { 
+    display: flex; /* Flexbox düzeni kullanır */
+    flex-direction: column; /* Dikey yönlendirme */
+    overflow-y: auto; /* Dikey taşmayı otomatik olarak yönetir */
+    max-height: 50%; /* Maksimum yüksekliği %25 yapar */
+    color: white; /* Yazı rengi siyah */
+    border-radius: 25px;
+}
+
+/* Kanal Açıklama Kutusu */
+.channel-description-box {
+    height: 20%; /* Yüksekliği %20 yapar */
+    padding: 20px; /* İç boşluk 20 piksel */
+    margin: 5px; /* Dış marjin 5 piksel */
+    background: black; /* Arka plan rengini siyah yapar */
+}
+
+/* Kanal Açıklama Başlığı */
+.channel-description-title {
+    font-size: 24px; /* Yazı boyutu 24 piksel */
+    margin-bottom: 5px; /* Alt marjin 5 piksel */
+    margin-left: 10px; /* Sol marjin 10 piksel */
+    color: white; /* Yazı rengi siyah */
+}
+
+/* Kanal Açıklama Alt Başlığı */
+.channel-description-subtitle {
+    font-size: 20px; /* Yazı boyutu 20 piksel */
+    margin-bottom: 5px; /* Alt marjin 5 piksel */
+    margin-left: 10px; /* Sol marjin 10 piksel */
+    color: white; /* Yazı rengi siyah */
+}
+
+/* Kanal Çevrimdışı Placeholder */
+.channel-offline-placeholder {
+    width: 100%; /* Genişliği %100 yapar */
+    height: 70%; /* Yüksekliği %70 yapar */
+    display: flex; /* Flexbox düzeni kullanır */
+    align-items: center; /* Dikeyde ortalar */
+    justify-content: center; /* Yatayda ortalar */
+}
+
+/* Sohbet Bölümü */
+.chat-section {
+    width: 20%; /* Genişliği %20 yapar */
+    background: #f7f7f8; /* Arka plan rengini açık gri yapar */
+    display: flex; /* Flexbox düzeni kullanır */
+    flex-direction: column; /* Dikey yönlendirme */
+    height: 100%; /* Yüksekliği %100 yapar */
+    background: rgb(230, 229, 229);
+}
+
+/* Sohbet Başlık Konteyneri */
+.chat-title-container {
+    width: 100%; /* Genişliği %100 yapar */
+    display: flex; /* Flexbox düzeni kullanır */
+    justify-content: center; /* Yatayda ortalar */
+    
+}
+
+/* Sohbet Başlık Metni */
+.chat-title-text {
+    font-size: 22px; /* Yazı boyutu 22 piksel */
+    margin-top: 20px; /* Üst marjin 20 piksel */
+    color: black; /* Yazı rengi siyah */
+}
+
+/* Sohbet Mesajları Konteyneri */
+.chat-messages-container {
+    flex-grow: 1; /* Kalan alanı doldurur */
+    display: flex; /* Flexbox düzeni kullanır */
+    flex-direction: column; /* Dikey yönlendirme */
+}
+
+/* Sohbet Mesajı */
+.chat-messages-message {
+    padding: 10px; /* İç boşluk 10 piksel */
+    border-radius: 5px; /* Kenarları yuvarlatır */
+    font-size: 16px; /* Yazı boyutu 16 piksel */
+    color: black; /* Yazı rengi siyah */
+    max-width: 80%; /* Maksimum genişliği %80 yapar */
+}
+
+/* Sohbet Mesaj Girişi Konteyneri */
+.chat-message-input-container {
+    width: 100%; /* Genişliği %100 yapar */
+    display: flex; /* Flexbox düzeni kullanır */
+    justify-content: center; /* Yatayda ortalar */
+}
+
+/* Sohbet Mesaj Girişi */
+.chat-message-input {
+    height: 30px; /* Yüksekliği 30 piksel */
+    width: 95%; /* Genişliği %95 yapar */
+    margin-bottom: 20px; /* Alt marjin 20 piksel */
+    margin-top: 20px; /* Üst marjin 20 piksel */
+}
+
+/* Kanal Takip Butonu */
+.channel-follow-button {
+    height: 30px; /* Yüksekliği 30 piksel */
+    width: 120px; /* Genişliği 120 piksel */
+    margin-left: 15px; /* Sol marjin 15 piksel */
+    background-color: #772ce8; /* Arka plan rengi mor */
+    color: white; /* Yazı rengi beyaz */
+    border: none; /* Kenarlık yok */
+    cursor: pointer; /* Üzerine gelindiğinde imleç pointer olur */
+    transition: 0.3s; /* Geçiş efekti 0.3 saniye */
+}
+
+/* Kanal Takip Butonunun Hover Durumu */
+.channel-follow-button:hover {
+    opacity: 0.7; /* Üzerine gelindiğinde opaklık %70 olur */
+}
+
+/* Kanal Takip Butonunun Disabled Durumu */
+.channel-follow-button:disabled {
+    opacity: 0.3; /* Disabled olduğunda opaklık %30 olur */
+}
+
+/* Yükleniyor Spinner Konteyneri */
+.spinner-container {
+    position: absolute; /* Mutlak konumlandırma */
+    width: 100%; /* Genişliği %100 yapar */
+    height: 100vh; /* Yüksekliği viewport yüksekliği kadar yapar */
+    background-color: rgba(255, 255, 255, 0.8); /* Yarı şeffaf beyaz arka plan */
+    display: flex; /* Flexbox düzeni kullanır */
+    justify-content: center; /* Yatayda ortalar */
+    align-items: center; /* Dikeyde ortalar */
+    z-index: 1000; /* Diğer öğelerin üzerinde yer alır */
+}
+
+/* Yükleniyor Spinner */
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.3); /* Dış kenar rengi ve kalınlığı */
+    border-top: 4px solid #000; /* Üst kenar rengini siyah yapar */
+    border-radius: 50%; /* Tamamen yuvarlak yapar */
+    width: 40px; /* Genişliği 40 piksel */
+    height: 40px; /* Yüksekliği 40 piksel */
+    animation: spin 1s linear infinite; /* 'spin' animasyonunu 1 saniye sürede sürekli olarak tekrarlar */
+}
+
+/* Spin Animasyonu */
+@keyframes spin {
+    0% { transform: rotate(0deg); } /* Başlangıçta 0 derece dönmüş */
+    100% { transform: rotate(360deg); } /* Bitiminde 360 derece dönmüş */
+}
+
