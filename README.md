@@ -147,16 +147,14 @@ Once the project is set up:
    ```
 
 4. Use a tool like OBS Studio to stream to `rtmp://localhost:1935/live`.
-Here is the English translation:
+
 
 ---
 
-5. **Broadcast Settings**  
+1. **Broadcast Settings**  
 When you are ready to broadcast on the platform, you need to select the broadcast type from the Broadcast tab. If you want to make a custom broadcast, select the "Custom" option. At this stage, use "rtmp://localhost/live" as the Server Address. Additionally, a stream key is required to start your broadcast. Enter the stream key according to the code you have created or the custom broadcast you have set up. This way, you can start and present your coded or specially prepared broadcast to viewers.
 
----
 
----
 
 ## Environment Variables Configuration (.env)
 
@@ -214,13 +212,6 @@ require('dotenv').config();
 ```
 
 This ensures that the environment variables from your `.env` file are loaded and accessible in your application.
-
----
-
-This README section helps to clarify the purpose and usage of each variable in the `.env` file.
-
-
----
 
 ## Contributing
 
